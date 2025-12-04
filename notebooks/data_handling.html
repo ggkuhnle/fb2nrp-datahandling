@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,22 +58,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0b37c64f34216b628666a8dac638b53b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,14 +104,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -194,17 +194,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#generate-the-synthetic-dataset" id="toc-generate-the-synthetic-dataset" class="nav-link active" data-scroll-target="#generate-the-synthetic-dataset"><span class="header-section-number">1</span> 1. Generate the synthetic dataset</a></li>
-  <li><a href="#inspecting-the-data" id="toc-inspecting-the-data" class="nav-link" data-scroll-target="#inspecting-the-data"><span class="header-section-number">2</span> 2. Inspecting the data</a></li>
-  <li><a href="#exploring-distributions" id="toc-exploring-distributions" class="nav-link" data-scroll-target="#exploring-distributions"><span class="header-section-number">3</span> 3. Exploring distributions</a>
+  <li><a href="#study-variables-and-data-types" id="toc-study-variables-and-data-types" class="nav-link active" data-scroll-target="#study-variables-and-data-types"><span class="header-section-number">1</span> 1. Study variables and data types</a></li>
+  <li><a href="#first-look-at-the-dataset" id="toc-first-look-at-the-dataset" class="nav-link" data-scroll-target="#first-look-at-the-dataset"><span class="header-section-number">2</span> 2. First look at the dataset</a>
   <ul class="collapse">
-  <li><a href="#what-is-a-qq-plot" id="toc-what-is-a-qq-plot" class="nav-link" data-scroll-target="#what-is-a-qq-plot"><span class="header-section-number">3.1</span> What is a Q–Q Plot?</a></li>
+  <li><a href="#missing-values-and-impossible-values" id="toc-missing-values-and-impossible-values" class="nav-link" data-scroll-target="#missing-values-and-impossible-values"><span class="header-section-number">2.1</span> 2.1 Missing values and impossible values</a></li>
   </ul></li>
-  <li><a href="#comparing-two-arms-parametric-and-non-parametric-tests" id="toc-comparing-two-arms-parametric-and-non-parametric-tests" class="nav-link" data-scroll-target="#comparing-two-arms-parametric-and-non-parametric-tests"><span class="header-section-number">4</span> 4. Comparing two arms: parametric and non-parametric tests</a></li>
-  <li><a href="#comparing-multiple-arms" id="toc-comparing-multiple-arms" class="nav-link" data-scroll-target="#comparing-multiple-arms"><span class="header-section-number">5</span> 5. Comparing multiple arms</a></li>
-  <li><a href="#why-p-0.05-is-not-a-magical-threshold" id="toc-why-p-0.05-is-not-a-magical-threshold" class="nav-link" data-scroll-target="#why-p-0.05-is-not-a-magical-threshold"><span class="header-section-number">6</span> 6. Why p = 0.05 is not a magical threshold</a></li>
-  <li><a href="#presenting-results-graphically" id="toc-presenting-results-graphically" class="nav-link" data-scroll-target="#presenting-results-graphically"><span class="header-section-number">7</span> 7. Presenting results graphically</a></li>
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">8</span> 8. Exercise</a></li>
+  <li><a href="#descriptive-statistics-for-continuous-variables" id="toc-descriptive-statistics-for-continuous-variables" class="nav-link" data-scroll-target="#descriptive-statistics-for-continuous-variables"><span class="header-section-number">3</span> 3. Descriptive statistics for continuous variables</a></li>
+  <li><a href="#exploring-distributions" id="toc-exploring-distributions" class="nav-link" data-scroll-target="#exploring-distributions"><span class="header-section-number">4</span> 4. Exploring distributions</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-qq-plot" id="toc-what-is-a-qq-plot" class="nav-link" data-scroll-target="#what-is-a-qq-plot"><span class="header-section-number">4.1</span> 4.1 What is a Q–Q plot?</a></li>
+  </ul></li>
+  <li><a href="#descriptive-statistics-for-categorical-variables" id="toc-descriptive-statistics-for-categorical-variables" class="nav-link" data-scroll-target="#descriptive-statistics-for-categorical-variables"><span class="header-section-number">5</span> 5. Descriptive statistics for categorical variables</a>
+  <ul class="collapse">
+  <li><a href="#describing-data-properly-for-publication" id="toc-describing-data-properly-for-publication" class="nav-link" data-scroll-target="#describing-data-properly-for-publication"><span class="header-section-number">5.1</span> 5.1 Describing data properly for publication</a></li>
+  </ul></li>
+  <li><a href="#statistical-inference-and-nhst" id="toc-statistical-inference-and-nhst" class="nav-link" data-scroll-target="#statistical-inference-and-nhst"><span class="header-section-number">6</span> 6. Statistical inference and NHST</a>
+  <ul class="collapse">
+  <li><a href="#p-values-and-95-confidence-intervals" id="toc-p-values-and-95-confidence-intervals" class="nav-link" data-scroll-target="#p-values-and-95-confidence-intervals"><span class="header-section-number">6.1</span> 6.1 p-values and 95% confidence intervals</a></li>
+  </ul></li>
+  <li><a href="#why-p-0.05-is-not-a-magical-threshold" id="toc-why-p-0.05-is-not-a-magical-threshold" class="nav-link" data-scroll-target="#why-p-0.05-is-not-a-magical-threshold"><span class="header-section-number">7</span> 7. Why p = 0.05 is not a magical threshold</a></li>
+  <li><a href="#comparing-two-groups-parametric-and-non-parametric-tests" id="toc-comparing-two-groups-parametric-and-non-parametric-tests" class="nav-link" data-scroll-target="#comparing-two-groups-parametric-and-non-parametric-tests"><span class="header-section-number">8</span> 8. Comparing two groups: parametric and non-parametric tests</a></li>
+  <li><a href="#comparing-more-than-two-groups" id="toc-comparing-more-than-two-groups" class="nav-link" data-scroll-target="#comparing-more-than-two-groups"><span class="header-section-number">9</span> 9. Comparing more than two groups</a></li>
+  <li><a href="#comparing-categories-chi-squared-tests-and-a-warning" id="toc-comparing-categories-chi-squared-tests-and-a-warning" class="nav-link" data-scroll-target="#comparing-categories-chi-squared-tests-and-a-warning"><span class="header-section-number">10</span> 10. Comparing categories: chi-squared tests and a warning</a></li>
+  <li><a href="#statistics-tools-not-an-oracle" id="toc-statistics-tools-not-an-oracle" class="nav-link" data-scroll-target="#statistics-tools-not-an-oracle"><span class="header-section-number">11</span> 11. Statistics: tools, not an oracle</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://ggkuhnle.github.io/fb2nrp-datahandling/issues/new" class="toc-action"><i class="bi bi-git"></i>Report an issue</a></li><li><a href="https://ggkuhnle.github.io/fb2nrp-datahandling/blob/main/notebooks/data_handling.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -230,8 +242,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>Version 0.0.1</em></p>
-<p>This workbook introduces the foundations of <strong>data handling</strong>, using a small <strong>synthetic RCT dataset</strong> that mimics the Part 2 practicals:</p>
+<p><em>Version 0.1.0</em></p>
+<p>This workbook introduces the foundations of <strong>data handling and basic analysis</strong>, using a small <strong>synthetic RCT dataset</strong> that mimics the Part 2 practicals:</p>
 <ul>
 <li>Blood pressure change after different amounts of coffee<br>
 </li>
@@ -239,651 +251,376 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
 <li>Appetite VAS after different test foods</li>
 </ul>
-<p>We <em>simulate</em> data (rather than use student data), including <strong>age</strong> and <strong>sex</strong>.</p>
-<p>By the end of the workbook, you should be able to:</p>
+<p>The data are <strong>simulated</strong> (not real student data) and include <strong>age</strong> and <strong>sex</strong>.<br>
+The dataset is made available as a pandas DataFrame called <code>df</code> by the <strong>bootstrap cell above</strong>.</p>
+<p>By the end of the workbook you should be able to:</p>
 <ul>
-<li>Generate and inspect data<br>
+<li>Distinguish between <strong>categorical</strong>, <strong>ordinal</strong>, and <strong>continuous</strong> variables<br>
 </li>
-<li>Identify missing or impossible values<br>
+<li>Explore a dataset with <code>df.info()</code> and <code>df.describe()</code><br>
 </li>
-<li>Explore distributions<br>
+<li>Compute and report <strong>mean</strong>, <strong>SD</strong>, <strong>median</strong>, <strong>IQR</strong> for continuous data<br>
 </li>
-<li>Decide whether parametric or non-parametric tests are appropriate<br>
+<li>Explore <strong>distributions</strong> and use Q–Q plots to assess normality<br>
 </li>
-<li>Understand randomness of <em>p</em>-values (including why 0.05 is arbitrary)<br>
+<li>Create <strong>contingency tables</strong> for categorical data<br>
 </li>
-<li>Compare intervention vs control<br>
+<li>Describe data appropriately for publication<br>
 </li>
-<li>Perform one-way comparisons with multiple intervention arms<br>
+<li>Understand the basics of <strong>NHST</strong> (H0 vs H1), <strong>p-values</strong>, and <strong>95% CIs</strong><br>
 </li>
-<li>Present results graphically</li>
+<li>See why p = 0.05 is not a magical threshold (we will use <strong>α = 0.0314</strong>)<br>
+</li>
+<li>Compare two and more groups using <strong>parametric</strong> and <strong>non-parametric</strong> tests<br>
+</li>
+<li>Remember that <strong>statistics are tools, not an oracle</strong></li>
 </ul>
-<p>Run the first code cell to configure the environment and load helper functions.</p>
-<div id="setup_imports" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># FB2NRP bootstrap cell (works both locally and in Colab)</span></span>
+<div id="setup_imports" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup: scientific Python libraries and plotting style</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># What this cell does:</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># - Locally: expects you to open the notebook from *inside*</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   the fb2nrp-datahandling repository (e.g. repo/notebooks).</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   It walks up the directory tree to find scripts/bootstrap.py.</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># - In Colab: if the repo is not found, it clones it from GitHub</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   into /content/fb2nrp-datahandling.</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># - Loads and runs scripts/bootstrap.py.</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># - Generates a synthetic dataset and makes it available as `df`.</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> subprocess</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib.util</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assumes the bootstrap cell above has already created:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   - df  : the synthetic dataset (pandas DataFrame)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   - CTX : context object with paths and settings</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Data handling and numerical computing</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical tests</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>REPO_URL <span class="op">=</span> <span class="st">"https://github.com/ggkuhnle/fb2nrp-datahandling.git"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>REPO_DIR <span class="op">=</span> <span class="st">"fb2nrp-datahandling"</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Detect environment and repo root</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> in_colab() <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="im">import</span> google.colab  <span class="co"># type: ignore  # noqa: F401</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ImportError</span>:</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">False</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure the process cwd is valid</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    cwd <span class="op">=</span> pathlib.Path.cwd()</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">FileNotFoundError</span>:</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If this happens locally, the safest is to bail out with</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># a clear message rather than guess.</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">RuntimeError</span>(</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Current working directory no longer exists.</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Please restart the kernel from inside the fb2nrp-datahandling repository "</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"(e.g. open the notebook from repo/notebooks and try again)."</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>repo_root <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> parent <span class="kw">in</span> [cwd] <span class="op">+</span> <span class="bu">list</span>(cwd.parents):</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (parent <span class="op">/</span> <span class="st">"scripts"</span> <span class="op">/</span> <span class="st">"bootstrap.py"</span>).is_file():</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        repo_root <span class="op">=</span> parent</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> repo_root <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We are somewhere inside an existing clone (local or Colab)</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>    os.chdir(repo_root)</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>    repo_root <span class="op">=</span> pathlib.Path.cwd()</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Repository root detected at: </span><span class="sc">{</span>repo_root<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Repo not found by walking up</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> in_colab():</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="co"># In Colab: clone into /content/fb2nrp-datahandling</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        base_dir <span class="op">=</span> pathlib.Path(<span class="st">"/content"</span>)</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>        os.chdir(base_dir)</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        repo_root <span class="op">=</span> base_dir <span class="op">/</span> REPO_DIR</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> repo_root.is_dir():</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Cloning repository from </span><span class="sc">{</span>REPO_URL<span class="sc">}</span><span class="ss"> into </span><span class="sc">{</span>repo_root<span class="sc">}</span><span class="ss"> ..."</span>)</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>            subprocess.run([<span class="st">"git"</span>, <span class="st">"clone"</span>, REPO_URL, <span class="bu">str</span>(repo_root)], check<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"Using existing repository at </span><span class="sc">{</span>repo_root<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        os.chdir(repo_root)</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>        repo_root <span class="op">=</span> pathlib.Path.cwd()</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Repository root set to: </span><span class="sc">{</span>repo_root<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Local but not inside the repo: fail with a clear message</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">RuntimeError</span>(</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Could not find fb2nrp-datahandling repository root.</span><span class="ch">\n</span><span class="st">"</span></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Please make sure you open this notebook from inside the "</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>            <span class="st">"`fb2nrp-datahandling` repository (e.g. repo/notebooks) and "</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>            <span class="st">"then re-run this cell."</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Load scripts/bootstrap.py as a module and call init()</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>bootstrap_path <span class="op">=</span> repo_root <span class="op">/</span> <span class="st">"scripts"</span> <span class="op">/</span> <span class="st">"bootstrap.py"</span></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> bootstrap_path.is_file():</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Could not find </span><span class="sc">{</span>bootstrap_path<span class="sc">}</span><span class="ss">. "</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Please check that the fb2nrp-datahandling repository structure is intact."</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>spec <span class="op">=</span> importlib.util.spec_from_file_location(<span class="st">"fb2nrp_bootstrap"</span>, bootstrap_path)</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>bootstrap <span class="op">=</span> importlib.util.module_from_spec(spec)</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>sys.modules[<span class="st">"fb2nrp_bootstrap"</span>] <span class="op">=</span> bootstrap</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>spec.loader.exec_module(bootstrap)</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>CTX <span class="op">=</span> bootstrap.init()</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> [<span class="st">"REPO_NAME"</span>, <span class="st">"REPO_URL"</span>]:</span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">hasattr</span>(bootstrap, name):</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>        <span class="bu">globals</span>()[name] <span class="op">=</span> <span class="bu">getattr</span>(bootstrap, name)</span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Bootstrap completed successfully."</span>)</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The main synthetic dataset is available as the variable `df`."</span>)</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The context object is available as `CTX`."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Repository root detected at: /Users/gunter/Documents/fb2nrp-datahandling
-Bootstrap completed successfully.
-The main synthetic dataset is available as the variable `df`.
-The context object is available as `CTX`.</code></pre>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Display options (optional but helpful)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_rows"</span>, <span class="dv">20</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_columns"</span>, <span class="dv">20</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot style</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>] <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">5</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Libraries loaded. DataFrame `df` is ready for analysis."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<section id="generate-the-synthetic-dataset" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="generate-the-synthetic-dataset"><span class="header-section-number">1</span> 1. Generate the synthetic dataset</h2>
-<p>We now generate a synthetic dataset that mimics the Part 2 practicals.</p>
+<section id="study-variables-and-data-types" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="study-variables-and-data-types"><span class="header-section-number">1</span> 1. Study variables and data types</h2>
+<p>Before running any analysis, we should understand <strong>what kind of variables</strong> we have.</p>
+<p>Common types:</p>
 <ul>
-<li>Coffee intervention with three arms: low, medium, high.<br>
+<li><strong>Categorical (nominal)</strong>: labels with no natural order (e.g.&nbsp;sex, treatment arm).<br>
 </li>
-<li>Cereal intervention with three arms: bran, cornflakes, muesli.<br>
+<li><strong>Ordinal</strong>: categories with a natural order, but unknown distance between levels (e.g.&nbsp;Likert scales).<br>
 </li>
-<li>Test foods for appetite VAS: apple, biscuit, yoghurt.</li>
+<li><strong>Continuous (or approximately continuous)</strong>: numeric values where differences and averages make sense (e.g.&nbsp;age, blood pressure, VAS scores).</li>
 </ul>
-<p>We also include <strong>age</strong> and <strong>sex</strong> for each participant.</p>
-<div id="bc65d57d" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="93d653ac" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup: scientific Python libraries and plotting style</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This cell:</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># - Loads the core scientific Python stack.</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - Sets a clean and readable plotting theme.</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># - Assumes the bootstrap cell has already created the DataFrame `df`</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   and the context object `CTX`.</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ============================================================</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Data handling and numerical computing</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np              <span class="co"># numerical arrays, random numbers, simple maths</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd             <span class="co"># tabular data (DataFrames)</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># general plotting</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns           <span class="co"># nicer statistical plots built on matplotlib</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical tests</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st        <span class="co"># t-tests, ANOVA, non-parametric tests, etc.</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Display options (optional but helpful in teaching)</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_rows"</span>, <span class="dv">20</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.max_columns"</span>, <span class="dv">20</span>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot style</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.figsize"</span>] <span class="op">=</span> (<span class="dv">8</span>, <span class="dv">5</span>)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="generate_data_code" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scripts.helpers <span class="im">import</span> simulate_practical_data</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the dataset</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> simulate_practical_data(seed<span class="op">=</span><span class="dv">11088</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">sex</th>
-<th data-quarto-table-cell-role="th">age</th>
-<th data-quarto-table-cell-role="th">coffee_arm</th>
-<th data-quarto-table-cell-role="th">cereal_arm</th>
-<th data-quarto-table-cell-role="th">food_arm</th>
-<th data-quarto-table-cell-role="th">bp_change</th>
-<th data-quarto-table-cell-role="th">glucose</th>
-<th data-quarto-table-cell-role="th">appetite_vas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>M</td>
-<td>23.0</td>
-<td>medium</td>
-<td>muesli</td>
-<td>biscuit</td>
-<td>-2.277014</td>
-<td>3.893446</td>
-<td>49.697382</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>F</td>
-<td>23.0</td>
-<td>low</td>
-<td>muesli</td>
-<td>apple</td>
-<td>-7.477945</td>
-<td>5.099903</td>
-<td>64.221224</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>F</td>
-<td>18.0</td>
-<td>low</td>
-<td>muesli</td>
-<td>yoghurt</td>
-<td>-5.792875</td>
-<td>5.137336</td>
-<td>61.463311</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>F</td>
-<td>21.0</td>
-<td>high</td>
-<td>bran</td>
-<td>apple</td>
-<td>6.757192</td>
-<td>5.337392</td>
-<td>41.922871</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>M</td>
-<td>27.0</td>
-<td>medium</td>
-<td>muesli</td>
-<td>biscuit</td>
-<td>8.056317</td>
-<td>4.607127</td>
-<td>69.574358</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<p>Our synthetic dataset <code>df</code> contains (one row per participant):</p>
+<div id="variables_table" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"sex"</span>,          <span class="st">"type"</span>: <span class="st">"categorical"</span>, <span class="st">"description"</span>: <span class="st">"Participant sex (F/M)"</span>},</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"age"</span>,          <span class="st">"type"</span>: <span class="st">"continuous"</span>,  <span class="st">"description"</span>: <span class="st">"Age (years)"</span>},</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"coffee_arm"</span>,   <span class="st">"type"</span>: <span class="st">"categorical"</span>, <span class="st">"description"</span>: <span class="st">"Coffee intervention: low / medium / high"</span>},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"cereal_arm"</span>,   <span class="st">"type"</span>: <span class="st">"categorical"</span>, <span class="st">"description"</span>: <span class="st">"Cereal: bran / cornflakes / muesli"</span>},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"food_arm"</span>,     <span class="st">"type"</span>: <span class="st">"categorical"</span>, <span class="st">"description"</span>: <span class="st">"Test food: apple / biscuit / yoghurt"</span>},</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"bp_change"</span>,    <span class="st">"type"</span>: <span class="st">"continuous"</span>,  <span class="st">"description"</span>: <span class="st">"Change in blood pressure (mmHg)"</span>},</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"glucose"</span>,      <span class="st">"type"</span>: <span class="st">"continuous"</span>,  <span class="st">"description"</span>: <span class="st">"Postprandial blood glucose (arbitrary units)"</span>},</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"variable"</span>: <span class="st">"appetite_vas"</span>, <span class="st">"type"</span>: <span class="st">"continuous"</span>,  <span class="st">"description"</span>: <span class="st">"Appetite VAS (0–100)"</span>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>variables</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="inspecting-the-data" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="inspecting-the-data"><span class="header-section-number">2</span> 2. Inspecting the data</h2>
-<p>Before any analysis, we need to understand the structure of the dataset and check for obvious problems:</p>
+<section id="first-look-at-the-dataset" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="first-look-at-the-dataset"><span class="header-section-number">2</span> 2. First look at the dataset</h2>
+<p>We start with a <strong>quick overview</strong>:</p>
 <ul>
-<li>Are all variables present?<br>
+<li><code>df.head()</code> shows the first few rows.<br>
 </li>
-<li>Are data types sensible (numeric vs categorical)?<br>
+<li><code>df.info()</code> summarises the variables and data types.<br>
 </li>
-<li>Are there missing values?<br>
-</li>
-<li>Are there any clearly impossible values?</li>
+<li><code>df.describe()</code> provides basic summary statistics for numeric variables.</li>
 </ul>
-<div id="inspect_info" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall structure of the DataFrame</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-RangeIndex: 180 entries, 0 to 179
-Data columns (total 8 columns):
- #   Column        Non-Null Count  Dtype  
----  ------        --------------  -----  
- 0   sex           180 non-null    object 
- 1   age           180 non-null    float64
- 2   coffee_arm    180 non-null    object 
- 3   cereal_arm    180 non-null    object 
- 4   food_arm      180 non-null    object 
- 5   bp_change     180 non-null    float64
- 6   glucose       180 non-null    float64
- 7   appetite_vas  180 non-null    float64
-dtypes: float64(4), object(4)
-memory usage: 11.4+ KB</code></pre>
+<div id="head_info" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First few rows</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="info_cell" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall structure of the DataFrame</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="inspect_describe_all" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics (including categorical variables)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df.describe(include<span class="op">=</span><span class="st">"all"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">sex</th>
-<th data-quarto-table-cell-role="th">age</th>
-<th data-quarto-table-cell-role="th">coffee_arm</th>
-<th data-quarto-table-cell-role="th">cereal_arm</th>
-<th data-quarto-table-cell-role="th">food_arm</th>
-<th data-quarto-table-cell-role="th">bp_change</th>
-<th data-quarto-table-cell-role="th">glucose</th>
-<th data-quarto-table-cell-role="th">appetite_vas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">count</td>
-<td>180</td>
-<td>180.000000</td>
-<td>180</td>
-<td>180</td>
-<td>180</td>
-<td>180.000000</td>
-<td>180.000000</td>
-<td>180.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">unique</td>
-<td>2</td>
-<td>NaN</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">top</td>
-<td>F</td>
-<td>NaN</td>
-<td>low</td>
-<td>bran</td>
-<td>apple</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">freq</td>
-<td>97</td>
-<td>NaN</td>
-<td>63</td>
-<td>64</td>
-<td>69</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">mean</td>
-<td>NaN</td>
-<td>20.888889</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>1.079185</td>
-<td>5.176204</td>
-<td>57.766216</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">std</td>
-<td>NaN</td>
-<td>2.134811</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>5.486477</td>
-<td>0.657627</td>
-<td>15.475763</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">min</td>
-<td>NaN</td>
-<td>16.000000</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>-12.901517</td>
-<td>3.572421</td>
-<td>22.274419</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">25%</td>
-<td>NaN</td>
-<td>19.000000</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>-2.968645</td>
-<td>4.761198</td>
-<td>46.871435</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">50%</td>
-<td>NaN</td>
-<td>21.000000</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>0.931915</td>
-<td>5.122706</td>
-<td>57.340160</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">75%</td>
-<td>NaN</td>
-<td>22.000000</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>4.907193</td>
-<td>5.575937</td>
-<td>67.190806</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">max</td>
-<td>NaN</td>
-<td>27.000000</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>16.614710</td>
-<td>6.866672</td>
-<td>100.000000</td>
-</tr>
-</tbody>
-</table>
-
+<div id="describe_cell" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for numeric variables</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
-<div id="inspect_missing" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count of missing values for each variable</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>sex             0
-age             0
-coffee_arm      0
-cereal_arm      0
-food_arm        0
-bp_change       0
-glucose         0
-appetite_vas    0
-dtype: int64</code></pre>
-</div>
-</div>
-<div id="inspect_numeric_describe" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numerical summary (range, mean, quartiles) for numeric variables</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">age</th>
-<th data-quarto-table-cell-role="th">bp_change</th>
-<th data-quarto-table-cell-role="th">glucose</th>
-<th data-quarto-table-cell-role="th">appetite_vas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">count</td>
-<td>180.000000</td>
-<td>180.000000</td>
-<td>180.000000</td>
-<td>180.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">mean</td>
-<td>20.888889</td>
-<td>1.079185</td>
-<td>5.176204</td>
-<td>57.766216</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">std</td>
-<td>2.134811</td>
-<td>5.486477</td>
-<td>0.657627</td>
-<td>15.475763</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">min</td>
-<td>16.000000</td>
-<td>-12.901517</td>
-<td>3.572421</td>
-<td>22.274419</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">25%</td>
-<td>19.000000</td>
-<td>-2.968645</td>
-<td>4.761198</td>
-<td>46.871435</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">50%</td>
-<td>21.000000</td>
-<td>0.931915</td>
-<td>5.122706</td>
-<td>57.340160</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">75%</td>
-<td>22.000000</td>
-<td>4.907193</td>
-<td>5.575937</td>
-<td>67.190806</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">max</td>
-<td>27.000000</td>
-<td>16.614710</td>
-<td>6.866672</td>
-<td>100.000000</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<section id="missing-values-and-impossible-values" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="missing-values-and-impossible-values"><span class="header-section-number">2.1</span> 2.1 Missing values and impossible values</h3>
+<p>We should also check for <strong>missing values</strong> and obviously impossible values (e.g.&nbsp;negative age, VAS &gt; 100).</p>
+<p>Our simulator does not generate missing or impossible values, but in real data these checks are essential.</p>
+<div id="missing_values_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count of missing values per variable</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df.isna().<span class="bu">sum</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exploring-distributions" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="exploring-distributions"><span class="header-section-number">3</span> 3. Exploring distributions</h2>
-<p>Choice of statistical test depends strongly on the underlying distribution.</p>
-<p>Here we:</p>
+</section>
+<section id="descriptive-statistics-for-continuous-variables" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="descriptive-statistics-for-continuous-variables"><span class="header-section-number">3</span> 3. Descriptive statistics for continuous variables</h2>
+<p>For continuous variables, we often report:</p>
 <ul>
-<li>Plot histograms and density curves.</li>
-<li>Inspect normality with a Q–Q plot.</li>
-<li>Compare distributions across intervention arms using boxplots.</li>
+<li><strong>Mean and standard deviation (SD)</strong> if the distribution is roughly symmetric.<br>
+</li>
+<li><strong>Median and interquartile range (IQR)</strong> if the distribution is skewed.</li>
 </ul>
-<div id="hist_bp_change" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram and density for blood pressure change</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">"bp_change"</span>], kde<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of BP change"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"BP change (mmHg)"</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data_handling_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<p>Here we compute both for the three main continuous outcomes:</p>
+<ul>
+<li><code>bp_change</code><br>
+</li>
+<li><code>glucose</code><br>
+</li>
+<li><code>appetite_vas</code></li>
+</ul>
+<div id="descriptive_cont_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cont_vars <span class="op">=</span> [<span class="st">"bp_change"</span>, <span class="st">"glucose"</span>, <span class="st">"appetite_vas"</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> cont_vars:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    series <span class="op">=</span> df[var].dropna()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    mean <span class="op">=</span> series.mean()</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    sd <span class="op">=</span> series.std()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    median <span class="op">=</span> series.median()</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    q1 <span class="op">=</span> series.quantile(<span class="fl">0.25</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    q3 <span class="op">=</span> series.quantile(<span class="fl">0.75</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    iqr <span class="op">=</span> q3 <span class="op">-</span> q1</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    rows.append({</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"variable"</span>: var,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: mean,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sd"</span>: sd,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: median,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q1"</span>: q1,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q3"</span>: q3,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"iqr"</span>: iqr</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>summary_cont <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>summary_cont</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="exploring-distributions" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="exploring-distributions"><span class="header-section-number">4</span> 4. Exploring distributions</h2>
+<p>Choice of statistical test depends strongly on the <strong>shape of the distribution</strong>.</p>
+<p>For each continuous outcome we can:</p>
+<ul>
+<li>Plot <strong>histograms</strong> and <strong>density curves</strong> (to see skew, multimodality, etc.).<br>
+</li>
+<li>Use a <strong>Q–Q plot</strong> to compare the data to a perfect normal distribution.<br>
+</li>
+<li>Compare distributions across arms using <strong>boxplots</strong>.</li>
+</ul>
+<div id="hist_bp_change" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram and density for blood pressure change</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">"bp_change"</span>], kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of BP change"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"BP change (mmHg)"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<section id="what-is-a-qq-plot" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="what-is-a-qq-plot"><span class="header-section-number">3.1</span> What is a Q–Q Plot?</h3>
-<p>A <strong>Quantile–Quantile (Q–Q) plot</strong> is a simple but powerful way to check<br>
-whether a variable follows a <strong>normal distribution</strong>.</p>
+<section id="what-is-a-qq-plot" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="what-is-a-qq-plot"><span class="header-section-number">4.1</span> 4.1 What is a Q–Q plot?</h3>
+<p>A <strong>Quantile–Quantile (Q–Q) plot</strong> is a way to check whether a variable follows a <strong>normal distribution</strong>.</p>
 <p>The idea is:</p>
 <ul>
-<li>Every dataset has its own <strong>quantiles</strong> (e.g.&nbsp;the 10th, 50th, 90th percentile).<br>
+<li>Every dataset has its own <strong>quantiles</strong> (for example the 10th, 50th, 90th percentile).<br>
 </li>
-<li>A normal distribution also has well-defined quantiles.</li>
-<li>A Q–Q plot <strong>compares the quantiles of your data</strong> with the <strong>quantiles of a perfect normal distribution</strong>.</li>
+<li>A normal distribution also has well-defined quantiles.<br>
+</li>
+<li>A Q–Q plot compares the quantiles of your data with the quantiles of a perfect normal distribution.</li>
 </ul>
-<p>If the data <strong>are approximately normal</strong>, the points in the Q–Q plot:</p>
+<p>If the data are approximately normal, the points in the Q–Q plot:</p>
 <ul>
-<li>fall roughly on a straight line<br>
-</li>
-<li>especially in the middle of the distribution</li>
+<li>fall roughly on a straight line, especially in the middle of the distribution.</li>
 </ul>
-<p>Deviations often mean:</p>
+<p>Deviations can indicate:</p>
 <ul>
 <li><strong>S-shape</strong> → skewed distribution<br>
 </li>
-<li><strong>heavy tails</strong> (points far above/below the line at the extremes)<br>
+<li><strong>Heavy tails</strong> → more extreme values than expected<br>
 </li>
-<li><strong>outliers</strong> (isolated points far from the pattern)</li>
+<li><strong>Outliers</strong> → isolated points far from the main pattern</li>
 </ul>
-<p>Q–Q plots are more sensitive than histograms for detecting<br>
-non-normality, especially in small samples.</p>
-<div id="qqplot_bp_change" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Q–Q plot to assess normality of BP change</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>st.probplot(df[<span class="st">"bp_change"</span>], dist<span class="op">=</span><span class="st">"norm"</span>, plot<span class="op">=</span>plt)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Q–Q plot of BP change"</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data_handling_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<p>Q–Q plots are often more informative than histograms, especially in smaller samples.</p>
+<div id="qqplot_bp_change" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Q–Q plot to assess normality of BP change</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>st.probplot(df[<span class="st">"bp_change"</span>], dist<span class="op">=</span><span class="st">"norm"</span>, plot<span class="op">=</span>plt)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Q–Q plot of BP change"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
-<div id="boxplot_bp_coffee" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of BP change by coffee arm</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"coffee_arm"</span>, y<span class="op">=</span><span class="st">"bp_change"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"BP change by coffee intervention arm"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Coffee arm"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"BP change (mmHg)"</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="data_handling_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
+<div id="boxplot_bp_coffee" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of BP change by coffee arm</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"coffee_arm"</span>, y<span class="op">=</span><span class="st">"bp_change"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"BP change by coffee intervention arm"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Coffee arm"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"BP change (mmHg)"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="comparing-two-arms-parametric-and-non-parametric-tests" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="comparing-two-arms-parametric-and-non-parametric-tests"><span class="header-section-number">4</span> 4. Comparing two arms: parametric and non-parametric tests</h2>
+<section id="descriptive-statistics-for-categorical-variables" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="descriptive-statistics-for-categorical-variables"><span class="header-section-number">5</span> 5. Descriptive statistics for categorical variables</h2>
+<p>For categorical variables, we usually report <strong>counts and percentages</strong>.</p>
+<p>Examples:</p>
+<ul>
+<li>How many participants are in each <strong>coffee_arm</strong>?<br>
+</li>
+<li>What is the distribution of <strong>sex</strong>?<br>
+</li>
+<li>How many participants are in each <strong>combination</strong> (e.g.&nbsp;coffee arm × sex)?</li>
+</ul>
+<div id="categorical_value_counts" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of participants by coffee arm</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"coffee_arm"</span>].value_counts().to_frame(name<span class="op">=</span><span class="st">"count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="categorical_crosstab" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Contingency table: sex by coffee arm</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pd.crosstab(df[<span class="st">"sex"</span>], df[<span class="st">"coffee_arm"</span>], margins<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="describing-data-properly-for-publication" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="describing-data-properly-for-publication"><span class="header-section-number">5.1</span> 5.1 Describing data properly for publication</h3>
+<p>In a methods or results section, we might write:</p>
+<ul>
+<li><strong>Continuous, roughly normal</strong> (e.g.&nbsp;BP change):<br>
+<em>“BP change was 1.8 ± 5.2 mmHg (mean ± SD).”</em><br>
+</li>
+<li><strong>Continuous, skewed</strong> (e.g.&nbsp;VAS):<br>
+<em>“Appetite VAS was 62 (48–75) units (median, IQR).”</em><br>
+</li>
+<li><strong>Categorical</strong>:<br>
+<em>“40% of participants were male (n = 72/180).”</em></li>
+</ul>
+<p>The choice between mean ± SD and median (IQR) should be guided by <strong>distributional shape</strong>, not habit.</p>
+</section>
+</section>
+<section id="statistical-inference-and-nhst" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="statistical-inference-and-nhst"><span class="header-section-number">6</span> 6. Statistical inference and NHST</h2>
+<p>So far we have described the <strong>sample</strong>. Statistical inference is about what we can reasonably say about the <strong>underlying population</strong>.</p>
+<p>In classical <strong>null hypothesis significance testing (NHST)</strong> we:</p>
+<ol type="1">
+<li>Formulate a <strong>null hypothesis (H0)</strong>, usually “no difference” or “no effect”.<br>
+</li>
+<li>Formulate an <strong>alternative hypothesis (H1)</strong>, e.g.&nbsp;“there is a difference”.<br>
+</li>
+<li>Choose a test statistic (e.g.&nbsp;a <em>t</em>-statistic) and compute it from the data.<br>
+</li>
+<li>Compute a <strong>p-value</strong>: the probability (under H0) of observing a result <em>at least as extreme</em> as the one we saw.<br>
+</li>
+<li>Decide whether the result is “compatible” with H0, often using a threshold α.</li>
+</ol>
+<section id="p-values-and-95-confidence-intervals" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="p-values-and-95-confidence-intervals"><span class="header-section-number">6.1</span> 6.1 p-values and 95% confidence intervals</h3>
+<ul>
+<li>A <strong>p-value</strong> is <em>not</em> the probability that H0 is true. It is the probability of the observed data (or more extreme) <em>if H0 were true</em>.</li>
+<li>A <strong>95% confidence interval (CI)</strong> for a parameter (e.g.&nbsp;difference in means) is an interval constructed such that, in repeated samples, 95% of such intervals would contain the true parameter.</li>
+</ul>
+<p>In practice:</p>
+<ul>
+<li>If a 95% CI for a difference <strong>excludes 0</strong>, the corresponding two-sided test at α = 0.05 is “statistically significant”.<br>
+</li>
+<li>The CI also gives a sense of <strong>precision</strong> and <strong>effect size</strong>, not just a yes/no decision.</li>
+</ul>
+<div id="example_ci_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: difference in mean BP change between low and high coffee arms</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>bp_low <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"low"</span>][<span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>bp_high <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"high"</span>][<span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>mean_low <span class="op">=</span> bp_low.mean()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>mean_high <span class="op">=</span> bp_high.mean()</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> mean_high <span class="op">-</span> mean_low</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard error for difference in means (Welch t-test style)</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>se_diff <span class="op">=</span> np.sqrt(bp_low.var(ddof<span class="op">=</span><span class="dv">1</span>)<span class="op">/</span><span class="bu">len</span>(bp_low) <span class="op">+</span> bp_high.var(ddof<span class="op">=</span><span class="dv">1</span>)<span class="op">/</span><span class="bu">len</span>(bp_high))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% CI using normal approximation (for teaching; in practice use statsmodels)</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="fl">1.96</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>ci_lower <span class="op">=</span> diff <span class="op">-</span> z <span class="op">*</span> se_diff</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>ci_upper <span class="op">=</span> diff <span class="op">+</span> z <span class="op">*</span> se_diff</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean BP change (low coffee):  </span><span class="sc">{</span>mean_low<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean BP change (high coffee): </span><span class="sc">{</span>mean_high<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Difference (high - low):      </span><span class="sc">{</span>diff<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Approx. 95% CI: [</span><span class="sc">{</span>ci_lower<span class="sc">:6.2f}</span><span class="ss">, </span><span class="sc">{</span>ci_upper<span class="sc">:6.2f}</span><span class="ss">] mmHg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="why-p-0.05-is-not-a-magical-threshold" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="why-p-0.05-is-not-a-magical-threshold"><span class="header-section-number">7</span> 7. Why p = 0.05 is not a magical threshold</h2>
+<p>In many papers, p &lt; 0.05 is treated as “significant” and p ≥ 0.05 as “not significant”, as if there were a sharp cliff.</p>
+<p>In reality:</p>
+<ul>
+<li>0.05 is a <strong>convention</strong>, not a law of nature.<br>
+</li>
+<li>A p-value of 0.049 is not fundamentally different from 0.051.<br>
+</li>
+<li>Decisions should also consider <strong>effect size</strong>, <strong>uncertainty</strong>, and <strong>context</strong>.</li>
+</ul>
+<p>In this workbook we deliberately use an unusual threshold <strong>α = 0.0314</strong> to emphasise that the choice of α is arbitrary and should be justified, not blindly copied.</p>
+<p>To see this more clearly, we simulate many RCTs with <strong>no true difference</strong> and look at the distribution of p-values.</p>
+<div id="pvalue_sim_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate 10 000 null experiments (no true difference between groups)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">11088</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> []</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>n_per_group <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_sim):</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, n_per_group)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, n_per_group)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    _, p <span class="op">=</span> st.ttest_ind(x, y, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    p_values.append(p)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>alpha_1 <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>alpha_2 <span class="op">=</span> <span class="fl">0.0314</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>sns.histplot(p_values, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>plt.axvline(alpha_1, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"0.05"</span>)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>plt.axvline(alpha_2, linestyle<span class="op">=</span><span class="st">":"</span>, label<span class="op">=</span><span class="st">"0.0314"</span>)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of p-values when there is NO true effect"</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"p-value"</span>)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>prop_005 <span class="op">=</span> np.mean(np.array(p_values) <span class="op">&lt;</span> alpha_1)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>prop_0314 <span class="op">=</span> np.mean(np.array(p_values) <span class="op">&lt;</span> alpha_2)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proportion of p-values &lt; 0.05:   </span><span class="sc">{</span>prop_005<span class="sc">:5.3f}</span><span class="ss">"</span>)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proportion of p-values &lt; 0.0314: </span><span class="sc">{</span>prop_0314<span class="sc">:5.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Reflection</strong></p>
+<ul>
+<li>Roughly what proportion of p-values fall below 0.05 when H0 is true?<br>
+</li>
+<li>What happens when we tighten the threshold to 0.0314?<br>
+</li>
+<li>What does this tell you about treating p = 0.049 and p = 0.051 as fundamentally different?</li>
+</ul>
+</section>
+<section id="comparing-two-groups-parametric-and-non-parametric-tests" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="comparing-two-groups-parametric-and-non-parametric-tests"><span class="header-section-number">8</span> 8. Comparing two groups: parametric and non-parametric tests</h2>
 <p>We now compare <strong>BP change</strong> between two coffee arms (e.g.&nbsp;low vs high).</p>
 <ul>
-<li>Parametric test: independent-samples <em>t</em>-test (assumes approximate normality).<br>
+<li><strong>Parametric test</strong>: independent-samples <em>t</em>-test (assumes approximate normality and reasonable variance behaviour).<br>
 </li>
-<li>Non-parametric test: Mann–Whitney U test (uses ranks, does not assume normality).</li>
+<li><strong>Non-parametric test</strong>: Mann–Whitney U test (uses ranks; does not assume normality).</li>
 </ul>
-<p>We also start using a slightly unusual significance threshold:<br>
-<strong>α = 0.0314</strong> (to emphasise that 0.05 is an arbitrary convention).</p>
-<div id="two_arm_tests" class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select two arms for comparison: low vs high coffee</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bp_low <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"low"</span>][<span class="st">"bp_change"</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>bp_high <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"high"</span>][<span class="st">"bp_change"</span>]</span>
+<p>We will use <strong>α = 0.0314</strong> as our decision threshold.</p>
+<div id="two_groups_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select two arms for comparison: low vs high coffee</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bp_low <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"low"</span>][<span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>bp_high <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"high"</span>][<span class="st">"bp_change"</span>].dropna()</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Independent-samples t-test</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Independent-samples t-test (Welch)</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>t_stat, p_t <span class="op">=</span> st.ttest_ind(bp_low, bp_high, equal_var<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Mann–Whitney U test (non-parametric)</span></span>
@@ -891,20 +628,22 @@ non-normality, especially in small samples.</p>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.0314</span></span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"t-test:        t = </span><span class="sc">{</span>t_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_t<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mann–Whitney:  U = </span><span class="sc">{</span>u_stat<span class="sc">:.1f}</span><span class="ss">, p = </span><span class="sc">{</span>p_u<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Using alpha = </span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"t-test:       t = </span><span class="sc">{</span>t_stat<span class="sc">:6.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_t<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mann–Whitney: U = </span><span class="sc">{</span>u_stat<span class="sc">:6.1f}</span><span class="ss">, p = </span><span class="sc">{</span>p_u<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Using alpha = </span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Question for you</strong></p>
+<p><strong>Questions</strong></p>
 <ul>
-<li>Do the conclusions from the <em>t</em>-test and Mann–Whitney test agree?<br>
+<li>Do the conclusions from the <em>t</em>-test and Mann–Whitney test agree at α = 0.0314?<br>
 </li>
-<li>How would the conclusion change if we used α = 0.05 instead of 0.0314?</li>
+<li>Would your conclusion change if you (arbitrarily) switched to α = 0.05?<br>
+</li>
+<li>Looking back at the distributions, does a parametric or non-parametric test seem more appropriate?</li>
 </ul>
 </section>
-<section id="comparing-multiple-arms" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="comparing-multiple-arms"><span class="header-section-number">5</span> 5. Comparing multiple arms</h2>
-<p>Now consider <strong>blood glucose</strong> across different cereal arms:</p>
+<section id="comparing-more-than-two-groups" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">9</span> 9. Comparing more than two groups</h2>
+<p>Now consider <strong>blood glucose</strong> across the three cereal arms:</p>
 <ul>
 <li>bran<br>
 </li>
@@ -914,400 +653,379 @@ non-normality, especially in small samples.</p>
 </ul>
 <p>We can use:</p>
 <ul>
-<li>ANOVA (parametric, assumes approximate normality and equal variances).<br>
+<li><strong>One-way ANOVA</strong> (parametric): compares mean values across groups.<br>
 </li>
-<li>Kruskal–Wallis test (non-parametric, based on ranks).</li>
+<li><strong>Kruskal–Wallis test</strong> (non-parametric): compares distributions using ranks.</li>
 </ul>
-<div id="multi_arm_tests" class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare lists of glucose values by cereal arm</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>groups_glucose <span class="op">=</span> [group[<span class="st">"glucose"</span>].values <span class="cf">for</span> _, group <span class="kw">in</span> df.groupby(<span class="st">"cereal_arm"</span>)]</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># One-way ANOVA</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>f_stat, p_anova <span class="op">=</span> st.f_oneway(<span class="op">*</span>groups_glucose)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Kruskal–Wallis test</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>h_stat, p_kw <span class="op">=</span> st.kruskal(<span class="op">*</span>groups_glucose)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"One-way ANOVA:"</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  F = </span><span class="sc">{</span>f_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_anova<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Kruskal–Wallis test:"</span>)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  H = </span><span class="sc">{</span>h_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_kw<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="multi_groups_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>groups_glucose <span class="op">=</span> [group[<span class="st">"glucose"</span>].values <span class="cf">for</span> _, group <span class="kw">in</span> df.groupby(<span class="st">"cereal_arm"</span>)]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># One-way ANOVA</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>f_stat, p_anova <span class="op">=</span> st.f_oneway(<span class="op">*</span>groups_glucose)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Kruskal–Wallis test</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>h_stat, p_kw <span class="op">=</span> st.kruskal(<span class="op">*</span>groups_glucose)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"One-way ANOVA:"</span>)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  F = </span><span class="sc">{</span>f_stat<span class="sc">:6.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_anova<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Kruskal–Wallis:"</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  H = </span><span class="sc">{</span>h_stat<span class="sc">:6.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_kw<span class="sc">:6.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="multi_arm_boxplot" class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise glucose values by cereal arm</span></span>
+<div id="multi_groups_boxplot" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise glucose values by cereal arm</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"cereal_arm"</span>, y<span class="op">=</span><span class="st">"glucose"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Blood glucose by cereal arm"</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Cereal arm"</span>)</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Glucose (arbitrary units)"</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="why-p-0.05-is-not-a-magical-threshold" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="why-p-0.05-is-not-a-magical-threshold"><span class="header-section-number">6</span> 6. Why p = 0.05 is not a magical threshold</h2>
-<p>In many papers, p &lt; 0.05 is treated as “significant” and p ≥ 0.05 as “not significant”.</p>
-<p>Here we simulate <strong>10 000 RCTs with no true difference</strong> between two groups. For each simulated experiment, we:</p>
+<section id="comparing-categories-chi-squared-tests-and-a-warning" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="comparing-categories-chi-squared-tests-and-a-warning"><span class="header-section-number">10</span> 10. Comparing categories: chi-squared tests and a warning</h2>
+<p>Sometimes we want to know whether <strong>two categorical variables are associated</strong>, for example:</p>
 <ul>
-<li>Draw two random samples from the same normal distribution.<br>
-</li>
-<li>Run an independent-samples <em>t</em>-test.<br>
-</li>
-<li>Store the resulting <em>p</em>-value.</li>
+<li>Is the proportion of participants with <strong>high appetite</strong> different across <strong>test foods</strong>?</li>
 </ul>
-<p>If there is really <strong>no effect</strong>, <em>p</em>-values should be uniformly distributed between 0 and 1, and about <strong>5%</strong> of them should still be below 0.05 just by chance.</p>
-<div id="pvalue_sim_code" class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate 10 000 null experiments</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">11088</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> []</span>
+<p>For this we can use a <strong>chi-squared test of independence</strong> on a contingency table.</p>
+<p>⚠️ <strong>Important reminder:</strong><br>
+- <strong>Categorical</strong> and <strong>ordinal</strong> data should <strong>not</strong> be analysed as if they were continuous without careful justification.<br>
+- For example, treating a 5-point Likert scale as if it were a continuous variable and running a <em>t</em>-test can be misleading.</p>
+<div id="chi_squared_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple categorical outcome: high vs not-high appetite</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>high_cutoff <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"appetite_high"</span>] <span class="op">=</span> (df[<span class="st">"appetite_vas"</span>] <span class="op">&gt;=</span> high_cutoff).astype(<span class="bu">int</span>)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>n_per_group <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>n_sim <span class="op">=</span> <span class="dv">10000</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_sim):</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, n_per_group)</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> rng.normal(<span class="dv">0</span>, <span class="dv">1</span>, n_per_group)</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    _, p <span class="op">=</span> st.ttest_ind(x, y, equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    p_values.append(p)</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the distribution of p-values</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>sns.histplot(p_values, bins<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="fl">0.05</span>, color<span class="op">=</span><span class="st">"red"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"0.05"</span>)</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of p-values when there is NO true effect"</span>)</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"p-value"</span>)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Count"</span>)</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Contingency table: appetite_high by food_arm</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.crosstab(df[<span class="st">"appetite_high"</span>], df[<span class="st">"food_arm"</span>])</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Contingency table (rows: appetite_high, columns: food_arm):"</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>display(table)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-squared test of independence</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>chi2, p_chi, dof, expected <span class="op">=</span> st.chi2_contingency(table)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Chi-squared test: chi2 = </span><span class="sc">{</span>chi2<span class="sc">:6.3f}</span><span class="ss">, df = </span><span class="sc">{</span>dof<span class="sc">}</span><span class="ss">, p = </span><span class="sc">{</span>p_chi<span class="sc">:6.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><strong>Reflection</strong></p>
+<p><strong>Questions</strong></p>
 <ul>
-<li>Roughly what proportion of <em>p</em>-values fall below 0.05?<br>
+<li>Does the chi-squared test suggest a difference in the proportion of high appetite across test foods (using α = 0.0314)?<br>
 </li>
-<li>What does this tell you about using p &lt; 0.05 as a hard decision rule?<br>
+<li>How would you <strong>report</strong> this result in words?<br>
 </li>
-<li>How might scientific conclusions be distorted if we only publish or believe “significant” findings?</li>
+<li>Why is a chi-squared test more appropriate here than a <em>t</em>-test on the raw VAS scores split into two categories?</li>
 </ul>
 </section>
-<section id="presenting-results-graphically" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="presenting-results-graphically"><span class="header-section-number">7</span> 7. Presenting results graphically</h2>
-<p>Well-designed figures often communicate results more clearly than tables alone.</p>
-<p>For approximately normal outcomes, we can show <strong>means with confidence intervals</strong>. For skewed outcomes (such as VAS scores), boxplots or violin plots can be more informative.</p>
-<div id="graphics_pointplot" class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: mean BP change with 95% confidence intervals by coffee arm</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.pointplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"coffee_arm"</span>, y<span class="op">=</span><span class="st">"bp_change"</span>, ci<span class="op">=</span><span class="dv">95</span>, dodge<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Mean BP change with 95% CI by coffee arm"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Coffee arm"</span>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"BP change (mmHg)"</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="graphics_boxplot_vas" class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: appetite VAS by test food (distribution often skewed)</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"food_arm"</span>, y<span class="op">=</span><span class="st">"appetite_vas"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Appetite VAS by test food"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Test food"</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Appetite VAS (0–100)"</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="exercise" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="exercise"><span class="header-section-number">8</span> 8. Exercise</h2>
-<p>Use the tools from this workbook to complete the following tasks:</p>
-<ol type="1">
-<li>For each outcome (<strong>bp_change</strong>, <strong>glucose</strong>, <strong>appetite_vas</strong>), explore its distribution (histograms, Q–Q plots, boxplots).</li>
-<li>Decide whether a <strong>parametric</strong> or <strong>non-parametric</strong> test is more appropriate for comparing intervention groups.</li>
-<li>Perform the comparison and report:
+<section id="statistics-tools-not-an-oracle" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="statistics-tools-not-an-oracle"><span class="header-section-number">11</span> 11. Statistics: tools, not an oracle</h2>
+<p>Finally, a reminder:</p>
 <ul>
-<li>The test used and why.</li>
-<li>The test statistic and <em>p</em>-value.</li>
-<li>Your conclusion using <strong>α = 0.0314</strong>.</li>
-</ul></li>
-<li>Create <strong>one clear figure</strong> that summarises the main result for one of the interventions (coffee, cereal, or test food).</li>
-</ol>
+<li>Statistical methods help us <strong>summarise uncertainty</strong> and <strong>quantify evidence</strong>.<br>
+</li>
+<li>They do <strong>not</strong> replace judgement about study design, data quality, or plausibility.<br>
+</li>
+<li>A “significant” p-value does not guarantee truth, and a “non-significant” result does not prove there is no effect.</li>
+</ul>
+<p>When using these tools in real research, always consider:</p>
+<ul>
+<li>Are the data appropriate for the method?<br>
+</li>
+<li>Are the assumptions at least approximately met?<br>
+</li>
+<li>Do the results make sense in the context of other evidence?</li>
+</ul>
 
 
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/ggkuhnle\.github\.io\/fb2nrp-datahandling\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ggkuhnle\.github\.io\/fb2nrp-datahandling\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1315,185 +1033,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
