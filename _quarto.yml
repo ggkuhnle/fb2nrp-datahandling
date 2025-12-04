@@ -13,9 +13,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: notebooks/index.qmd
-        text: Notebooks
-      - href: howto_sandbox/index.md
+      - href: howto_sandbox/index.qmd
         text: How to Sandbox
 
 
@@ -26,7 +24,6 @@ website:
       - index.qmd
       - section: "Notebooks"
         contents:
-          - notebooks/index.qmd
           - notebooks/*.ipynb
 
   page-footer:
