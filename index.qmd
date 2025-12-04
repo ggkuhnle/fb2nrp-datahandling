@@ -1,24 +1,28 @@
 ---
-title: FB2NRP - Data handling
+title: FB2NRP – Data handling
 format:
   html:
     toc: false
     number-sections: false
 ---
 
-## Practical workbooks
+## Practical workbook: Data handling
 
-This page links to the **FB2NEP practical workbooks**.  
-Each badge opens the notebook in **Google Colab in a new browser tab**.
+This page links to the **FB2NRP data handling workbook**.
 
-You may also download the notebooks and run them locally in Jupyter.
+Most of you will arrive here from **Blackboard**.  
+To work through the practical in Google Colab:
+
+1. **Click the Colab badge** below.  
+2. A new browser tab will open with the notebook in **Google Colab**.  
+3. If Google shows a warning about running code from GitHub, you can **safely ignore it and continue** – this is our teaching material.
+
+You may also download the notebook and run it locally in Jupyter if you prefer.
 
 ---
 
-### FB2NRP - Data handling
+### FB2NRP – Data handling
 
 <a href="https://colab.research.google.com/github/ggkuhnle/fb2nrp-datahandling/blob/main/notebooks/data_handling.ipynb" target="_blank">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open 01 in Colab">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open data handling workbook in Colab">
 </a>
-
-
