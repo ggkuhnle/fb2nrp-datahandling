@@ -1,0 +1,6 @@
+numpy>=1.26,<2.0
+pandas>=2.3,<2.4
+matplotlib>=3.9,<3.11
+seaborn>=0.13,<0.14
+statsmodels>=0.14,<0.15
+networkx>=3.3,<3.4

@@ -1,0 +1,119 @@
+---
+title: "FB2NEP — How‑To & Sandbox (Colab/Jupyter)"
+format:
+  html:
+    toc: true
+    theme: default
+page-layout: article
+author: "Gunter Kuhnle"
+lang: en-GB
+date: today
+date-format: "D MMMM YYYY"
+---
+
+
+
+> This page shows you how to open and use the module notebooks in **Google Colab** (or locally in Jupyter). It includes direct links and easy to understand guidance. If you have never used Python before, you are in the right place.
+
+## Quick links
+
+**Open the notebooks directly in Colab:**
+
+- **Introduction Notebook**  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ggkuhnle/fb2nep-epi/blob/main/howto_sandbox/Introduction-Notebook.ipynb) · [View on GitHub](https://github.com/ggkuhnle/fb2nep-epi/blob/main/howto_sandbox/Introduction-Notebook.ipynb)
+
+- **Playground (Sandbox)**  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ggkuhnle/fb2nep-epi/blob/main/howto_sandbox/Playground.ipynb) · [View on GitHub](https://github.com/ggkuhnle/fb2nep-epi/blob/main/howto_sandbox/Playground.ipynb)
+
+**Printable cheat‑sheet:**  
+- [python‑cheatsheet.md](python-cheatsheet.md) (open “Raw”, then save/print)
+
+> If you **fork** or use a different repository, update the links by replacing `ggkuhnle/fb2nep-epi` with your repo slug.
+
+<details>
+<summary><strong>What does “fork” mean on GitHub?</strong></summary>
+
+A **fork** is **your own copy** of someone else’s GitHub repository under **your GitHub account**.  
+You can change it freely **without affecting the original**. Your fork can still receive updates from the original (“upstream”).
+
+**Why fork?**
+- You want your **own version** of the materials.
+- You don’t have write permission on the original repo.
+- You plan to customise and maybe propose changes back later (via pull requests).
+
+**How to fork (GitHub web):**
+1. Open the original repo (e.g. `https://github.com/ggkuhnle/fb2nep-epi`).
+2. Click **Fork** (top-right) → choose your account → **Create fork**.
+3. You now have `https://github.com/<YOUR-USER>/<YOUR-REPO>`.
+
+**Update links after forking**
+Replace the `owner/repo` part with your fork’s **repo slug**:
+- GitHub view:  
+  `https://github.com/<YOUR-USER>/<YOUR-REPO>/blob/main/path/to/notebook.ipynb`
+- Colab badge:  
+  `https://colab.research.google.com/github/<YOUR-USER>/<YOUR-REPO>/blob/main/path/to/notebook.ipynb`
+
+**Fork vs. clone vs. branch (quick)**
+- **Fork:** makes **your own repo** on GitHub.
+- **Clone:** makes a **local copy** on your computer.
+- **Branch:** a **line of development** inside one repo (yours or the original).
+
+**Keeping your fork up-to-date**
+- On GitHub: open your fork and click **Sync fork** / **Fetch upstream**.
+- With Git (advanced):  
+  ```bash
+  git remote add upstream https://github.com/ggkuhnle/fb2nep-epi.git
+  git fetch upstream
+  git checkout main
+  git merge upstream/main
+  git push
+</details>
+
+---
+
+## How to open a notebook in Colab (step‑by‑step)
+
+> What is **Colab**? Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.
+
+> Right-clicking will open **Colab** in a new browser window.
+
+1. Click an **Open in Colab** button above. Colab will load the notebook from GitHub. 
+2. At the top‑right, click **Connect** if it isn’t already connected. This starts a fresh, temporary Python session (a “runtime”).  
+3. You may see a warning like **“This notebook was not authored by Google.”**  
+   - Click **Run anyway**. Our notebooks are plain text and safe to run.  
+4. You might also see **“Warning: This notebook requires permissions to run.”**  
+   - Click **Run anyway**. Colab sandboxes code; nothing runs on your computer.  
+5. To **run a cell**, click the small ▶ button on its left, or press **Shift + Enter**.  
+6. To **run every cell from top to bottom**, go to **Runtime → Run all**.  
+7. To **save your own editable copy**, go to **File → Save a copy in Drive**. You now have a personal copy you can edit freely.
+
+### Useful Colab options
+- **Runtime → Restart runtime** resets the session if things get stuck.  
+- **Runtime → Change runtime type** (we use Python 3; **no GPU needed**).  
+- **File → Download** lets you save the executed notebook as `.ipynb` or PDF.
+
+---
+
+## Working locally in Jupyter (optional)
+If you prefer local execution:
+1. Install **Anaconda** or **Miniconda**, then open **Jupyter Lab**.  
+2. Download the `.ipynb` files from GitHub and open them in Jupyter Lab.  
+3. Run cells with **Shift + Enter** as in Colab.
+
+---
+
+## Troubleshooting
+
+- **ModuleNotFoundError** (e.g. `statsmodels`): run the cell that starts with `!pip install ...`, then **Runtime → Restart runtime**, and re‑run the code.  
+- **Kernel crashed / out of memory**: restart the runtime. Don’t open huge datasets in this sandbox.  
+- **Long‑running cells**: click the stop icon (■) next to the cell number, or **Runtime → Interrupt execution**.
+
+---
+
+## What you will learn here
+
+- How to run Python cells safely in the cloud (Colab).  
+- How to make small edits and immediately see their effect.  
+- How to generate simple synthetic data and make basic plots & analyses you’ll reuse in FB2NEP.
+
+Now jump into the **Introduction Notebook** first, then play in the **Playground**.
