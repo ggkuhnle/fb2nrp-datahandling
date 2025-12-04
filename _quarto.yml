@@ -1,0 +1,55 @@
+project:
+  type: website
+  # If you prefer local /docs deploy instead of Actions, uncomment:
+  # output-dir: docs
+
+website:
+  title: "FB2NRP Data Handling"
+  site-url: https://ggkuhnle.github.io/fb2nrp-datahandling/
+  repo-url: https://ggkuhnle.github.io/fb2nrp-datahandling
+  repo-actions: [issue, source]
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: notebooks/index.qmd
+        text: Notebooks
+      - href: howto_sandbox/index.md
+        text: How to Sandbox
+
+
+  sidebar:
+    style: floating
+    search: true
+    contents:
+      - index.qmd
+      - section: "Notebooks"
+        contents:
+          - notebooks/index.qmd
+          - notebooks/*.ipynb
+
+  page-footer:
+    left: "© University of Reading 2025 · Licensed <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>"
+    right: "Built with Quarto"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-tools: true
+    smooth-scroll: true
+  # PDFs are just copied as resources; leaving this here is optional
+  # pdf: default
+
+execute:
+  eval: false
+
+resources:
+  - slides/**
+  - data/**
+  - metadata/**
+  - assessment/**
+
