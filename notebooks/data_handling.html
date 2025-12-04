@@ -251,14 +251,37 @@ window.Quarto = {
   </ul></li>
   <li><a href="#statistical-inference-and-nhst" id="toc-statistical-inference-and-nhst" class="nav-link" data-scroll-target="#statistical-inference-and-nhst"><span class="header-section-number">7</span> 6. Statistical inference and NHST</a>
   <ul class="collapse">
-  <li><a href="#p-values-and-why-0.05-is-not-magical" id="toc-p-values-and-why-0.05-is-not-magical" class="nav-link" data-scroll-target="#p-values-and-why-0.05-is-not-magical"><span class="header-section-number">7.1</span> 6.1 p-values and why 0.05 is not magical</a></li>
-  <li><a href="#confidence-intervals-cis" id="toc-confidence-intervals-cis" class="nav-link" data-scroll-target="#confidence-intervals-cis"><span class="header-section-number">7.2</span> 6.2 Confidence intervals (CIs)</a></li>
-  <li><a href="#simulating-p-values-under-the-null" id="toc-simulating-p-values-under-the-null" class="nav-link" data-scroll-target="#simulating-p-values-under-the-null"><span class="header-section-number">7.3</span> 6.3 Simulating p-values under the null</a></li>
+  <li><a href="#p-values-and-why-0.05-is-not-magical" id="toc-p-values-and-why-0.05-is-not-magical" class="nav-link" data-scroll-target="#p-values-and-why-0.05-is-not-magical"><span class="header-section-number">7.2</span> 6.1 p-values and why 0.05 is not magical</a></li>
+  <li><a href="#confidence-intervals-cis" id="toc-confidence-intervals-cis" class="nav-link" data-scroll-target="#confidence-intervals-cis"><span class="header-section-number">7.3</span> 6.2 Confidence intervals (CIs)</a></li>
+  <li><a href="#simulating-p-values-under-the-null" id="toc-simulating-p-values-under-the-null" class="nav-link" data-scroll-target="#simulating-p-values-under-the-null"><span class="header-section-number">7.4</span> 6.3 Simulating p-values under the null</a></li>
+  <li><a href="#visualising-similar-data-with-different-p-values" id="toc-visualising-similar-data-with-different-p-values" class="nav-link" data-scroll-target="#visualising-similar-data-with-different-p-values"><span class="header-section-number">7.5</span> 6.4 Visualising similar data with different p-values</a></li>
   </ul></li>
-  <li><a href="#basic-applications-parametric-vs-non-parametric-tests" id="toc-basic-applications-parametric-vs-non-parametric-tests" class="nav-link" data-scroll-target="#basic-applications-parametric-vs-non-parametric-tests"><span class="header-section-number">8</span> 7. Basic applications: parametric vs non-parametric tests</a></li>
-  <li><a href="#comparing-more-than-two-groups" id="toc-comparing-more-than-two-groups" class="nav-link" data-scroll-target="#comparing-more-than-two-groups"><span class="header-section-number">9</span> 8. Comparing more than two groups</a></li>
-  <li><a href="#comparing-categories-chi-squared-tests-and-a-warning" id="toc-comparing-categories-chi-squared-tests-and-a-warning" class="nav-link" data-scroll-target="#comparing-categories-chi-squared-tests-and-a-warning"><span class="header-section-number">10</span> 9. Comparing categories: chi-squared tests and a warning</a></li>
-  <li><a href="#statistics-tools-not-an-oracle" id="toc-statistics-tools-not-an-oracle" class="nav-link" data-scroll-target="#statistics-tools-not-an-oracle"><span class="header-section-number">11</span> 10. Statistics: tools, not an oracle</a></li>
+  <li><a href="#basic-applications-parametric-vs-non-parametric-tests" id="toc-basic-applications-parametric-vs-non-parametric-tests" class="nav-link" data-scroll-target="#basic-applications-parametric-vs-non-parametric-tests"><span class="header-section-number">9</span> 7. Basic applications: parametric vs non-parametric tests</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-the-independent-samples-t-test" id="toc-assumptions-for-the-independent-samples-t-test" class="nav-link" data-scroll-target="#assumptions-for-the-independent-samples-t-test"><span class="header-section-number">9.1</span> Assumptions for the independent-samples <em>t</em>-test</a></li>
+  <li><a href="#visual-comparison-with-notched-boxplots" id="toc-visual-comparison-with-notched-boxplots" class="nav-link" data-scroll-target="#visual-comparison-with-notched-boxplots"><span class="header-section-number">9.2</span> 7.1 Visual comparison with notched boxplots</a></li>
+  <li><a href="#from-description-to-hypothesis-tests" id="toc-from-description-to-hypothesis-tests" class="nav-link" data-scroll-target="#from-description-to-hypothesis-tests"><span class="header-section-number">9.3</span> 7.2 From description to hypothesis tests</a></li>
+  <li><a href="#interpreting-the-test-output" id="toc-interpreting-the-test-output" class="nav-link" data-scroll-target="#interpreting-the-test-output"><span class="header-section-number">9.4</span> 7.3 Interpreting the test output</a></li>
+  <li><a href="#paired-t-test" id="toc-paired-t-test" class="nav-link" data-scroll-target="#paired-t-test"><span class="header-section-number">9.5</span> 7.4 Paired <em>t</em>-test</a></li>
+  </ul></li>
+  <li><a href="#comparing-more-than-two-groups" id="toc-comparing-more-than-two-groups" class="nav-link" data-scroll-target="#comparing-more-than-two-groups"><span class="header-section-number">10</span> 8. Comparing more than two groups</a>
+  <ul class="collapse">
+  <li><a href="#parametric-vs-non-parametric-tests-for-3-groups" id="toc-parametric-vs-non-parametric-tests-for-3-groups" class="nav-link" data-scroll-target="#parametric-vs-non-parametric-tests-for-3-groups"><span class="header-section-number">10.1</span> 8.1 Parametric vs non-parametric tests for 3+ groups</a></li>
+  <li><a href="#descriptive-statistics-by-cereal-arm" id="toc-descriptive-statistics-by-cereal-arm" class="nav-link" data-scroll-target="#descriptive-statistics-by-cereal-arm"><span class="header-section-number">10.2</span> 8.2 Descriptive statistics by cereal arm</a></li>
+  <li><a href="#visual-comparison" id="toc-visual-comparison" class="nav-link" data-scroll-target="#visual-comparison"><span class="header-section-number">10.3</span> 8.3 Visual comparison</a></li>
+  <li><a href="#hypothesis-tests-anova-and-kruskalwallis" id="toc-hypothesis-tests-anova-and-kruskalwallis" class="nav-link" data-scroll-target="#hypothesis-tests-anova-and-kruskalwallis"><span class="header-section-number">10.4</span> 8.4 Hypothesis tests: ANOVA and Kruskal–Wallis</a></li>
+  <li><a href="#interpretation-prompts" id="toc-interpretation-prompts" class="nav-link" data-scroll-target="#interpretation-prompts"><span class="header-section-number">10.5</span> 8.5 Interpretation prompts</a></li>
+  </ul></li>
+  <li><a href="#comparing-categories-χ²-tests-and-a-warning" id="toc-comparing-categories-χ²-tests-and-a-warning" class="nav-link" data-scroll-target="#comparing-categories-χ²-tests-and-a-warning"><span class="header-section-number">11</span> 9. Comparing categories: χ² tests and a warning</a>
+  <ul class="collapse">
+  <li><a href="#what-the-χ²-test-does" id="toc-what-the-χ²-test-does" class="nav-link" data-scroll-target="#what-the-χ²-test-does"><span class="header-section-number">11.1</span> 9.1 What the χ² test does</a></li>
+  <li><a href="#assumptions-of-the-χ²-test" id="toc-assumptions-of-the-χ²-test" class="nav-link" data-scroll-target="#assumptions-of-the-χ²-test"><span class="header-section-number">11.2</span> 9.2 Assumptions of the χ² test</a></li>
+  <li><a href="#when-χ²-is-not-appropriate" id="toc-when-χ²-is-not-appropriate" class="nav-link" data-scroll-target="#when-χ²-is-not-appropriate"><span class="header-section-number">11.3</span> 9.3 When χ² is <em>not</em> appropriate</a></li>
+  <li><a href="#a-caution-about-treating-categories-as-numbers" id="toc-a-caution-about-treating-categories-as-numbers" class="nav-link" data-scroll-target="#a-caution-about-treating-categories-as-numbers"><span class="header-section-number">11.4</span> 9.4 A caution about treating categories as numbers</a></li>
+  <li><a href="#workflow-for-a-χ²-test" id="toc-workflow-for-a-χ²-test" class="nav-link" data-scroll-target="#workflow-for-a-χ²-test"><span class="header-section-number">11.5</span> 9.5 Workflow for a χ² test</a></li>
+  <li><a href="#how-are-expected-counts-calculated" id="toc-how-are-expected-counts-calculated" class="nav-link" data-scroll-target="#how-are-expected-counts-calculated"><span class="header-section-number">11.6</span> How are expected counts calculated?</a></li>
+  </ul></li>
+  <li><a href="#statistics-tools-not-an-oracle" id="toc-statistics-tools-not-an-oracle" class="nav-link" data-scroll-target="#statistics-tools-not-an-oracle"><span class="header-section-number">12</span> 10. Statistics: tools, not an oracle</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://ggkuhnle.github.io/fb2nrp-datahandling/issues/new" class="toc-action"><i class="bi bi-git"></i>Report an issue</a></li><li><a href="https://ggkuhnle.github.io/fb2nrp-datahandling/blob/main/notebooks/data_handling.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -536,7 +559,7 @@ Different types require different summaries and different statistical tests.</p>
 <tr class="odd">
 <td><strong>Categorical (nominal)</strong></td>
 <td>Distinct labels with <strong>no natural order</strong>. Values are names only.</td>
-<td>Sex (F/M), coffee arm (low/medium/high), cereal arm, favourite animal (hippo optional).</td>
+<td>Sex (F/M), coffee arm (low/medium/high), cereal arm, favourite animal (hippo).</td>
 <td>Counts and percentages.</td>
 <td>Chi-squared tests, Fisher’s exact test, logistic/multinomial regression.</td>
 </tr>
@@ -778,7 +801,7 @@ This matters for <strong>t-tests</strong> and confidence intervals based on smal
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">11</span>)  <span class="co"># 0 to 10 events</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>pmf <span class="op">=</span> st.poisson.pmf(k_values, mu<span class="op">=</span>lam)</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.stem(k_values, pmf, use_line_collection<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.stem(k_values, pmf)</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Poisson(λ = 2.5) distribution"</span>)</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Number of events (k)"</span>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probability P(X = k)"</span>)</span>
@@ -1059,9 +1082,11 @@ This is for illustration only – in real work you would usually format the tabl
 </li>
 <li>H1: mean BP change is different in the two arms.</li>
 </ul>
-<p>We never prove H0 or H1; we simply assess how <strong>compatible</strong> the data are with H0.</p>
-<section id="p-values-and-why-0.05-is-not-magical" class="level3" data-number="7.1">
-<h3 data-number="7.1" class="anchored" data-anchor-id="p-values-and-why-0.05-is-not-magical"><span class="header-section-number">7.1</span> 6.1 p-values and why 0.05 is not magical</h3>
+<blockquote class="blockquote">
+<h3 id="we-never-prove-h0-or-h1-we-simply-assess-how-compatible-the-data-are-with-h0." data-number="7.1" class="anchored"><span class="header-section-number">7.1</span> We never prove H0 or H1; we simply assess how <strong>compatible</strong> the data are with H0.</h3>
+</blockquote>
+<section id="p-values-and-why-0.05-is-not-magical" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="p-values-and-why-0.05-is-not-magical"><span class="header-section-number">7.2</span> 6.1 p-values and why 0.05 is not magical</h3>
 <ul>
 <li>A <strong>p-value</strong> is <em>not</em> the probability that H0 is true.<br>
 </li>
@@ -1083,8 +1108,8 @@ This is for illustration only – in real work you would usually format the tabl
 </ul>
 <p>In this workbook we deliberately use an unusual threshold <strong>α = 0.0314</strong> to emphasise that the choice of α is arbitrary and should be justified, not blindly copied.</p>
 </section>
-<section id="confidence-intervals-cis" class="level3" data-number="7.2">
-<h3 data-number="7.2" class="anchored" data-anchor-id="confidence-intervals-cis"><span class="header-section-number">7.2</span> 6.2 Confidence intervals (CIs)</h3>
+<section id="confidence-intervals-cis" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="confidence-intervals-cis"><span class="header-section-number">7.3</span> 6.2 Confidence intervals (CIs)</h3>
 <p>A <strong>95% confidence interval (CI)</strong> for a parameter (e.g.&nbsp;difference in means) is constructed such that, in repeated samples, <strong>95% of such intervals would contain the true parameter</strong>.</p>
 <p>In practice:</p>
 <ul>
@@ -1118,8 +1143,8 @@ This is for illustration only – in real work you would usually format the tabl
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Approx. 95% CI: [</span><span class="sc">{</span>ci_lower<span class="sc">:6.2f}</span><span class="ss">, </span><span class="sc">{</span>ci_upper<span class="sc">:6.2f}</span><span class="ss">] mmHg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="simulating-p-values-under-the-null" class="level3" data-number="7.3">
-<h3 data-number="7.3" class="anchored" data-anchor-id="simulating-p-values-under-the-null"><span class="header-section-number">7.3</span> 6.3 Simulating p-values under the null</h3>
+<section id="simulating-p-values-under-the-null" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="simulating-p-values-under-the-null"><span class="header-section-number">7.4</span> 6.3 Simulating p-values under the null</h3>
 <p>To see what p-values look like when <strong>there is no true effect</strong>, we can simulate many small RCTs where both groups come from the same distribution.</p>
 <p>If H0 is true and we repeat the experiment many times:</p>
 <ul>
@@ -1162,44 +1187,440 @@ This is for illustration only – in real work you would usually format the tabl
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proportion of p-values &lt; 0.05:   </span><span class="sc">{</span>prop_005<span class="sc">:5.3f}</span><span class="ss">"</span>)</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proportion of p-values &lt; 0.0314: </span><span class="sc">{</span>prop_0314<span class="sc">:5.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="visualising-similar-data-with-different-p-values" class="level3" data-number="7.5">
+<h3 data-number="7.5" class="anchored"><span class="header-section-number">7.5</span> 6.4 Visualising similar data with different p-values</h3>
+<p>It is easy to forget that <strong>p-values form a continuum</strong>, not a cliff.</p>
+<p>To make this concrete, we use a pre-simulated dataset (<code>data/pval.csv</code>) created as follows:</p>
+<ul>
+<li><p>Two groups of <strong>50 observations</strong> each were generated from the <strong>same normal distribution</strong> (mean 150, SD 20).<br>
+</p></li>
+<li><p>We repeatedly simulated new datasets until we obtained a range of <strong>two-sample <em>t</em>-test p-values</strong>:</p>
+<ul>
+<li>Very small: 0.0001, 0.001<br>
+</li>
+<li>“Classic” small: 0.01, 0.02, 0.04, 0.049, 0.05, 0.051, 0.06<br>
+</li>
+<li>Clearly non-significant: 0.10, 0.50, 1.00</li>
+</ul></li>
+<li><p>For each p-value in this list we kept one dataset and stored all individual values.</p></li>
+</ul>
+<p>In this section we:</p>
+<ol type="1">
+<li>Load the pre-simulated data.<br>
+</li>
+<li>Plot <strong>boxplots + jittered points</strong> for each p-value.<br>
+</li>
+<li>Zoom in on p = 0.049, 0.050, 0.051.</li>
+</ol>
+<p><strong>What to look for</strong></p>
+<ul>
+<li>The <strong>visual differences</strong> between groups change <strong>gradually</strong>, not suddenly at 0.05.<br>
+</li>
+<li>“Just significant” (0.049) and “just non-significant” (0.051) are <strong>practically indistinguishable</strong>.<br>
+</li>
+<li>Very small p-values correspond to <strong>larger effects and/or more precise estimates</strong>, not some new qualitative state of the world.</li>
+</ul>
+<div id="0669f328" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6.3(a) Load pre-simulated data and plot all p-values</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------------------------------------</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Path to the CSV (generated previously in R)</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prefer CTX.data_dir if available, otherwise default to ./data</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    data_dir <span class="op">=</span> CTX.data_dir</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">AttributeError</span>:</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    data_dir <span class="op">=</span> pathlib.Path(<span class="st">"data"</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>pval_path <span class="op">=</span> data_dir <span class="op">/</span> <span class="st">"pval.csv"</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loading p-value data from: </span><span class="sc">{</span>pval_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>pval_df <span class="op">=</span> pd.read_csv(pval_path)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Define desired p-value order</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the old row index column if present</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"Unnamed: 0"</span> <span class="kw">in</span> pval_df.columns:</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    pval_df <span class="op">=</span> pval_df.drop(columns<span class="op">=</span>[<span class="st">"Unnamed: 0"</span>])</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Make p-values a categorical label for nicer x-axis</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>pval_df[<span class="st">"pval_label"</span>] <span class="op">=</span> pval_df[<span class="st">"pval"</span>].<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="ss">f"</span><span class="sc">{</span>x<span class="sc">:g}</span><span class="ss">"</span>)</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>pval_df.head()</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f01c08c7" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Combined boxplot + jitter for all available p-values</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Each code cell: one main output figure</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>pval_df,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"pval"</span>,</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"value"</span>,</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"class"</span>,</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    dodge<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    fliersize<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>sns.stripplot(</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>pval_df,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"pval"</span>,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"value"</span>,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"class"</span>,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    dodge<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    jitter<span class="op">=</span><span class="fl">0.25</span>,</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.6</span>,</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>handles, labels <span class="op">=</span> ax.get_legend_handles_labels()</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>ax.legend(handles[:<span class="dv">2</span>], labels[:<span class="dv">2</span>], title<span class="op">=</span><span class="st">"Group"</span>)</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"p-value"</span>)</span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Blood pressure (mmHg)"</span>)</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"What does a p-value look like?</span><span class="ch">\n</span><span class="st">Two groups of random numbers"</span>)</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p><strong>Reflection</strong></p>
 <ul>
 <li>Roughly what proportion of p-values fall below 0.05 when H0 is true?<br>
 </li>
 <li>What happens when we tighten the threshold to 0.0314?<br>
 </li>
-<li>What does this tell you about treating p = 0.049 and p = 0.051 as fundamentally different?</li>
+<li><h2 id="what-does-this-tell-you-about-treating-p-0.049-and-p-0.051-as-fundamentally-different" data-number="8" class="anchored" data-anchor-id="visualising-similar-data-with-different-p-values"><span class="header-section-number">8</span> What does this tell you about treating p = 0.049 and p = 0.051 as fundamentally different?</h2></li>
 </ul>
 </section>
 </section>
-<section id="basic-applications-parametric-vs-non-parametric-tests" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="basic-applications-parametric-vs-non-parametric-tests"><span class="header-section-number">8</span> 7. Basic applications: parametric vs non-parametric tests</h2>
-<p>A <strong>parametric test</strong> makes assumptions about the distribution of the data (e.g.&nbsp;normality, similar variances).<br>
+<section id="basic-applications-parametric-vs-non-parametric-tests" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="basic-applications-parametric-vs-non-parametric-tests"><span class="header-section-number">9</span> 7. Basic applications: parametric vs non-parametric tests</h2>
+<p>A <strong>parametric test</strong> (such as the independent-samples <em>t</em>-test) makes assumptions about the distribution and behaviour of the data.<br>
 A <strong>non-parametric test</strong> usually works on <strong>ranks</strong> and makes fewer distributional assumptions.</p>
-<p>We now compare <strong>BP change</strong> between two coffee arms (e.g.&nbsp;low vs high):</p>
+<p>Before we compare <strong>BP change</strong> between two coffee arms (low vs high), it is important to recall the key assumptions behind the <em>t</em>-test.</p>
+<section id="assumptions-for-the-independent-samples-t-test" class="level3" data-number="9.1">
+<h3 data-number="9.1" class="anchored" data-anchor-id="assumptions-for-the-independent-samples-t-test"><span class="header-section-number">9.1</span> Assumptions for the independent-samples <em>t</em>-test</h3>
+<ol type="1">
+<li><p><strong>Independence</strong><br>
+Observations in one group must be independent of observations in the other group. Within each group, participants should not influence one another. (This is usually satisfied by design.)</p></li>
+<li><p><strong>Approximately normal distribution (for each group)</strong><br>
+The <em>t</em>-test assumes that the outcome in each group is approximately normally distributed.</p>
 <ul>
-<li><strong>Parametric test</strong>: independent-samples t-test (Welch).<br>
+<li>The test is fairly robust to mild deviations, especially with reasonable sample sizes.<br>
 </li>
-<li><strong>Non-parametric test</strong>: Mann–Whitney U test (Wilcoxon rank-sum).</li>
+<li>What matters is normality of the <strong>data within each group</strong>, not the difference between groups.</li>
+</ul></li>
+<li><p><strong>Similar variances (homoscedasticity)</strong><br>
+The classic Student <em>t</em>-test assumes that the two groups have equal variances.</p>
+<ul>
+<li><strong>Welch’s <em>t</em>-test</strong>, which we use here, relaxes this assumption and performs much better when variances differ.<br>
+</li>
+<li>In practice, Welch is almost always the safer default.</li>
+</ul></li>
+<li><p><strong>Scale and measurement</strong><br>
+The outcome should be continuous (or close to it) so that means and standard deviations are meaningful summaries.</p></li>
+</ol>
+<p>If these assumptions are doubtful—especially if the data are skewed or contain outliers—a <strong>non-parametric alternative</strong> such as the <strong>Mann–Whitney U test</strong> may provide a more robust comparison.</p>
+<p>We will use:</p>
+<ul>
+<li><strong>Parametric test</strong>: Welch’s independent-samples <em>t</em>-test<br>
+</li>
+<li><strong>Non-parametric test</strong>: Mann–Whitney U test</li>
 </ul>
-<p>We will use <strong>α = 0.0314</strong> as our decision threshold.</p>
-<div id="two_groups_code" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select two arms for comparison: low vs high coffee</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>bp_low <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"low"</span>][<span class="st">"bp_change"</span>].dropna()</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>bp_high <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"high"</span>][<span class="st">"bp_change"</span>].dropna()</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Independent-samples t-test (Welch, unequal variances)</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>t_stat, p_t <span class="op">=</span> st.ttest_ind(bp_low, bp_high, equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Mann–Whitney U test (non-parametric)</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>u_stat, p_u <span class="op">=</span> st.mannwhitneyu(bp_low, bp_high, alternative<span class="op">=</span><span class="st">"two-sided"</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.0314</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"t-test:       t = </span><span class="sc">{</span>t_stat<span class="sc">:6.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_t<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mann–Whitney: U = </span><span class="sc">{</span>u_stat<span class="sc">:6.1f}</span><span class="ss">, p = </span><span class="sc">{</span>p_u<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Using alpha = </span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>and a decision threshold of <strong>α = 0.0314</strong>.</p>
+<p>First, we look at the data.</p>
+<div id="376280be" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 7(a). Descriptive statistics by coffee arm (low vs high)</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> [<span class="st">"low"</span>, <span class="st">"high"</span>]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> g <span class="kw">in</span> groups:</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    series <span class="op">=</span> df.loc[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> g, <span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    rows.append({</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"coffee_arm"</span>: g,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"n"</span>: <span class="bu">len</span>(series),</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: series.mean(),</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sd"</span>: series.std(),</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: series.median(),</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q1"</span>: series.quantile(<span class="fl">0.25</span>),</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q3"</span>: series.quantile(<span class="fl">0.75</span>),</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>bp_summary <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>bp_summary[<span class="st">"IQR"</span>] <span class="op">=</span> bp_summary[<span class="st">"q3"</span>] <span class="op">-</span> bp_summary[<span class="st">"q1"</span>]</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>bp_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>And now, we conduct a comparison:</p>
+</section>
+<section id="visual-comparison-with-notched-boxplots" class="level3" data-number="9.2">
+<h3 data-number="9.2" class="anchored" data-anchor-id="visual-comparison-with-notched-boxplots"><span class="header-section-number">9.2</span> 7.1 Visual comparison with notched boxplots</h3>
+<p>A <strong>notched boxplot</strong> shows an approximate <strong>confidence interval around the median</strong>.</p>
+<ul>
+<li>If the notches of two groups <strong>do not overlap</strong>, this suggests a difference in medians.<br>
+</li>
+<li>If they <strong>do overlap</strong>, the data are compatible with similar medians.</li>
+</ul>
+<p>Here we draw a notched boxplot of <strong>BP change (ΔSBP)</strong> by coffee arm.</p>
+<div id="c2ac6041" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 7(b). Notched boxplot: BP change by coffee arm</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the data for each group</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>bp_low <span class="op">=</span> df.loc[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"low"</span>, <span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>bp_high <span class="op">=</span> df.loc[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"high"</span>, <span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>ax.boxplot(</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    [bp_low, bp_high],</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    labels<span class="op">=</span>[<span class="st">"low"</span>, <span class="st">"high"</span>],</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    notch<span class="op">=</span><span class="va">True</span>,          <span class="co"># &lt;- notches</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    widths<span class="op">=</span><span class="fl">0.6</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Coffee arm"</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"BP change (mmHg)"</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Notched boxplot of BP change by coffee arm"</span>)</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="from-description-to-hypothesis-tests" class="level3" data-number="9.3">
+<h3 data-number="9.3" class="anchored" data-anchor-id="from-description-to-hypothesis-tests"><span class="header-section-number">9.3</span> 7.2 From description to hypothesis tests</h3>
+<p>We have now:</p>
+<ul>
+<li>summarised <strong>BP change (ΔSBP)</strong> in each coffee arm (n, mean, SD, median, IQR), and<br>
+</li>
+<li>looked at the <strong>distribution shapes</strong> using boxplots (and notched boxplots).</li>
+</ul>
+<p>The next step is to ask a <strong>specific question</strong>:</p>
+<blockquote class="blockquote">
+<p>Is the average change in systolic blood pressure different<br>
+between the <em>low</em> and <em>high</em> coffee arms?</p>
+</blockquote>
+<p>To answer this, we use two related but conceptually different tests:</p>
+<ul>
+<li><strong>Welch’s independent-samples <em>t</em>-test</strong> (parametric)
+<ul>
+<li>Works on the <strong>original values</strong>.<br>
+</li>
+<li>Assumes the data in each group are <strong>approximately normal</strong> and that the mean is a sensible summary.<br>
+</li>
+<li>Allows for <strong>different variances</strong> in the two groups (Welch).</li>
+</ul></li>
+<li><strong>Mann–Whitney U test</strong> (non-parametric, Wilcoxon rank-sum)
+<ul>
+<li>Works on the <strong>ranks</strong> of the values, not the raw numbers.<br>
+</li>
+<li>Does <em>not</em> assume normality.<br>
+</li>
+<li>Is mainly sensitive to <strong>shifts in the central tendency</strong> between groups.</li>
+</ul></li>
+</ul>
+<p>For this workbook we use a slightly unusual threshold <strong>α = 0.0314</strong> rather than 0.05, to underline that:</p>
+<ul>
+<li>α is a <strong>choice</strong>, not a law of nature, and<br>
+</li>
+<li>p-values are part of a continuum, not a yes/no oracle.</li>
+</ul>
+<p>In the next cell we compute both tests and compare their conclusions.</p>
+<div id="two_groups_code" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 7.3 Parametric vs non-parametric tests: detailed output</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Select two arms for comparison: low vs high coffee</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>bp_low <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"low"</span>][<span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>bp_high <span class="op">=</span> df[df[<span class="st">"coffee_arm"</span>] <span class="op">==</span> <span class="st">"high"</span>][<span class="st">"bp_change"</span>].dropna()</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.0314</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Descriptive stats for each group --------------------</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarise(series):</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"n"</span>: <span class="bu">len</span>(series),</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: series.mean(),</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sd"</span>: series.std(),</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: series.median(),</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q1"</span>: series.quantile(<span class="fl">0.25</span>),</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q3"</span>: series.quantile(<span class="fl">0.75</span>),</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>summary_low <span class="op">=</span> summarise(bp_low)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>summary_high <span class="op">=</span> summarise(bp_high)</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Descriptive statistics for BP change (ΔSBP)"</span>)</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"==========================================="</span>)</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Low coffee arm:"</span>)</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  n       = </span><span class="sc">{</span>summary_low[<span class="st">'n'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  mean    = </span><span class="sc">{</span>summary_low[<span class="st">'mean'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  sd      = </span><span class="sc">{</span>summary_low[<span class="st">'sd'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  median  = </span><span class="sc">{</span>summary_low[<span class="st">'median'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  IQR     = </span><span class="sc">{</span>summary_low[<span class="st">'q1'</span>]<span class="sc">:6.2f}</span><span class="ss"> to </span><span class="sc">{</span>summary_low[<span class="st">'q3'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">High coffee arm:"</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  n       = </span><span class="sc">{</span>summary_high[<span class="st">'n'</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  mean    = </span><span class="sc">{</span>summary_high[<span class="st">'mean'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  sd      = </span><span class="sc">{</span>summary_high[<span class="st">'sd'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  median  = </span><span class="sc">{</span>summary_high[<span class="st">'median'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  IQR     = </span><span class="sc">{</span>summary_high[<span class="st">'q1'</span>]<span class="sc">:6.2f}</span><span class="ss"> to </span><span class="sc">{</span>summary_high[<span class="st">'q3'</span>]<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Difference in means + approx 95% CI -----------------</span></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a>diff_means <span class="op">=</span> summary_high[<span class="st">"mean"</span>] <span class="op">-</span> summary_low[<span class="st">"mean"</span>]</span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard error of difference in means (Welch-style)</span></span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a>se_diff <span class="op">=</span> np.sqrt(bp_low.var(ddof<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> summary_low[<span class="st">"n"</span>] <span class="op">+</span></span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>                  bp_high.var(ddof<span class="op">=</span><span class="dv">1</span>) <span class="op">/</span> summary_high[<span class="st">"n"</span>])</span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Approximate 95% CI using normal quantiles (for teaching)</span></span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a>z_95 <span class="op">=</span> <span class="fl">1.96</span></span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>ci_low <span class="op">=</span> diff_means <span class="op">-</span> z_95 <span class="op">*</span> se_diff</span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>ci_high <span class="op">=</span> diff_means <span class="op">+</span> z_95 <span class="op">*</span> se_diff</span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Difference in means (high – low):"</span>)</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"================================="</span>)</span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Δmean   = </span><span class="sc">{</span>diff_means<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  SE_diff = </span><span class="sc">{</span>se_diff<span class="sc">:6.2f}</span><span class="ss"> mmHg"</span>)</span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Approx. 95% CI: [</span><span class="sc">{</span>ci_low<span class="sc">:6.2f}</span><span class="ss">, </span><span class="sc">{</span>ci_high<span class="sc">:6.2f}</span><span class="ss">] mmHg"</span>)</span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="c5009f17" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Hypothesis tests ------------------------------------</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Welch t-test (parametric)</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>t_stat, p_t <span class="op">=</span> st.ttest_ind(bp_low, bp_high, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Mann–Whitney U test (non-parametric)</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>u_stat, p_u <span class="op">=</span> st.mannwhitneyu(bp_low, bp_high, alternative<span class="op">=</span><span class="st">"two-sided"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Hypothesis tests (H0: no difference between arms)"</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"================================================="</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Welch t-test (means, assumes ~normality):"</span>)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  t-statistic = </span><span class="sc">{</span>t_stat<span class="sc">:6.3f}</span><span class="ss">"</span>)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  p-value     = </span><span class="sc">{</span>p_t<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Decision at α = </span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span><span class="st">'reject H0'</span> <span class="cf">if</span> p_t <span class="op">&lt;</span> alpha <span class="cf">else</span> <span class="st">'do NOT reject H0'</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Mann–Whitney U test (ranks, fewer assumptions):"</span>)</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  U-statistic = </span><span class="sc">{</span>u_stat<span class="sc">:6.1f}</span><span class="ss">"</span>)</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  p-value     = </span><span class="sc">{</span>p_u<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Decision at α = </span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span><span class="st">'reject H0'</span> <span class="cf">if</span> p_u <span class="op">&lt;</span> alpha <span class="cf">else</span> <span class="st">'do NOT reject H0'</span><span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="interpreting-the-test-output" class="level3" data-number="9.4">
+<h3 data-number="9.4" class="anchored" data-anchor-id="interpreting-the-test-output"><span class="header-section-number">9.4</span> 7.3 Interpreting the test output</h3>
+<p>The previous cell reports three layers of information:</p>
+<ol type="1">
+<li><p><strong>Descriptive statistics for each arm</strong></p>
+<p>For both the low and high coffee arms we see:</p>
+<ul>
+<li>sample size (<em>n</em>)<br>
+</li>
+<li>mean and standard deviation (SD) of BP change (ΔSBP)<br>
+</li>
+<li>median and interquartile range (IQR)</li>
+</ul>
+<p>These tell us how large the changes are and how much variability there is <em>before</em> we think about p-values.</p></li>
+<li><p><strong>Difference in means with an approximate 95% confidence interval</strong></p>
+<ul>
+<li>The quantity labelled <code>Δmean</code> is the difference in mean BP change<br>
+(high – low).<br>
+</li>
+<li>The 95% confidence interval (CI) tells us which values of the true mean difference are <strong>reasonably compatible</strong> with the data.<br>
+</li>
+<li>If the CI <strong>includes 0</strong>, then “no difference” is among the values compatible with the data; if it <strong>excludes 0</strong>, the data are less compatible with “no difference”.</li>
+</ul>
+<p>Note that the CI here is <strong>95%</strong>, whereas our α threshold for tests is <strong>0.0314</strong>. This is deliberate: 95% CIs are a familiar summary of uncertainty, while α can in principle be chosen differently.</p></li>
+<li><p><strong>Two hypothesis tests with different assumptions</strong></p>
+<ul>
+<li><strong>Welch <em>t</em>-test</strong>
+<ul>
+<li>Works on the original values.<br>
+</li>
+<li>Assumes data in each group are approximately normal and that the mean is a sensible summary.<br>
+</li>
+<li>Accounts for unequal variances between groups.<br>
+</li>
+<li>The output shows the <em>t</em>-statistic and its p-value.</li>
+</ul></li>
+<li><strong>Mann–Whitney U test</strong>
+<ul>
+<li>Works on the <strong>ranks</strong> rather than the raw numbers.<br>
+</li>
+<li>Makes fewer assumptions about the shape of the distribution.<br>
+</li>
+<li>Mainly detects a shift in central tendency between groups.<br>
+</li>
+<li>The output shows the U-statistic and its p-value.</li>
+</ul></li>
+</ul>
+<p>For each test the code prints a simple decision:</p>
+<blockquote class="blockquote">
+<p>“reject H0” or “do NOT reject H0 at α = 0.0314”.</p>
+</blockquote>
+<p>This should <em>not</em> be read as a verdict of “true” or “false”, but as:</p>
+<ul>
+<li>whether the observed data are unusually extreme <strong>if</strong> there were truly no difference between arms, under the assumptions of that test.</li>
+</ul></li>
+</ol>
+<p>Try to reconcile:</p>
+<ul>
+<li>what you see in the <strong>boxplots and notched boxplots</strong>,<br>
+</li>
+<li>the <strong>difference in means and its CI</strong>, and<br>
+</li>
+<li>the <strong>p-values and decisions</strong>.</li>
+</ul>
+<p>They should tell a <strong>consistent story</strong> about the size, direction, and uncertainty of the effect.</p>
+</section>
+<section id="paired-t-test" class="level3" data-number="9.5">
+<h3 data-number="9.5" class="anchored" data-anchor-id="paired-t-test"><span class="header-section-number">9.5</span> 7.4 Paired <em>t</em>-test</h3>
+<p>So far we have compared <strong>two independent groups</strong> (e.g.&nbsp;low vs high coffee arm). Sometimes, however, the same individuals are measured <strong>twice</strong>, for example:</p>
+<ul>
+<li>before and after a dietary intervention<br>
+</li>
+<li>left vs right hand grip strength<br>
+</li>
+<li>fasting vs postprandial glucose in the same participant</li>
+</ul>
+<p>In this situation, the two measurements are <strong>not independent</strong>.<br>
+Each person acts as their own control, and the natural unit of analysis is the <strong>difference within each participant</strong>.</p>
+<p>A <strong>paired <em>t</em>-test</strong> works as follows:</p>
+<ol type="1">
+<li>For each participant, compute<br>
+<span class="math display">\[
+d_i = \text{(after)} - \text{(before)}.
+\]</span></li>
+<li>Treat these differences $ d_i $ as a <strong>single sample</strong>.</li>
+<li>Test whether the <strong>mean difference</strong> is compatible with zero.</li>
+</ol>
+<p>Key points:</p>
+<ul>
+<li>The paired <em>t</em>-test is more <strong>powerful</strong> than an independent-samples test<br>
+when the before/after measurements are correlated (they usually are).<br>
+</li>
+<li>It assumes the <strong>distribution of the differences</strong> is approximately normal, not the raw values themselves.<br>
+</li>
+<li>The effect it estimates is the <strong>average within-person change</strong>.</li>
+</ul>
+<p>Paired designs are extremely common in nutrition studies (e.g.&nbsp;crossover trials, pre/post biomarker measurements), and recognising when to use the paired <em>t</em>-test is an important skill.</p>
+<p>No code is shown here; this section is purely conceptual.</p>
 <p><strong>Questions</strong></p>
 <ul>
 <li>Do the conclusions from the t-test and Mann–Whitney test agree at α = 0.0314?<br>
@@ -1208,10 +1629,13 @@ A <strong>non-parametric test</strong> usually works on <strong>ranks</strong> a
 </li>
 <li>Looking back at the distributions, does a parametric or non-parametric test seem more appropriate?</li>
 </ul>
+<hr>
 </section>
-<section id="comparing-more-than-two-groups" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">9</span> 8. Comparing more than two groups</h2>
-<p>Now consider <strong>blood glucose</strong> across the three cereal arms:</p>
+</section>
+<section id="comparing-more-than-two-groups" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="comparing-more-than-two-groups"><span class="header-section-number">10</span> 8. Comparing more than two groups</h2>
+<p>So far we have compared <em>two</em> groups (low vs high coffee).<br>
+We now extend this to <strong>three groups</strong>, using <strong>blood glucose</strong> across the three cereal arms:</p>
 <ul>
 <li>bran<br>
 </li>
@@ -1219,59 +1643,360 @@ A <strong>non-parametric test</strong> usually works on <strong>ranks</strong> a
 </li>
 <li>muesli</li>
 </ul>
-<p>We can use:</p>
-<ul>
-<li><strong>One-way ANOVA</strong> (parametric): compares mean values across groups.<br>
+<p>Before running any tests, the workflow is the same:</p>
+<ol type="1">
+<li><strong>Describe each group</strong> (n, mean, SD, median, IQR).<br>
 </li>
-<li><strong>Kruskal–Wallis test</strong> (non-parametric): compares distributions using ranks.</li>
+<li><strong>Inspect distributions visually</strong>.<br>
+</li>
+<li><strong>Choose an appropriate test</strong>.</li>
+</ol>
+<hr>
+<section id="parametric-vs-non-parametric-tests-for-3-groups" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="parametric-vs-non-parametric-tests-for-3-groups"><span class="header-section-number">10.1</span> 8.1 Parametric vs non-parametric tests for 3+ groups</h3>
+<section id="one-way-anova-parametric" class="level4" data-number="10.1.1">
+<h4 data-number="10.1.1" class="anchored" data-anchor-id="one-way-anova-parametric"><span class="header-section-number">10.1.1</span> <strong>One-way ANOVA (parametric)</strong></h4>
+<p>ANOVA asks whether <strong>at least one group mean differs</strong> from the others.</p>
+<p>Key assumptions:</p>
+<ol type="1">
+<li><p><strong>Independence of observations</strong><br>
+Each participant contributes one observation; groups should not influence each other.</p></li>
+<li><p><strong>Approximately normal distribution within each group</strong><br>
+As with the <em>t</em>-test, ANOVA is reasonably robust with moderate sample sizes.</p></li>
+<li><p><strong>Homogeneity of variances</strong><br>
+The variability within each group should be roughly similar<br>
+(large differences in SDs make ANOVA less reliable).</p></li>
+<li><p><strong>Outcome measured on a continuous scale</strong><br>
+Means and SDs must be meaningful summaries for the measurement.</p></li>
+</ol>
+<p>ANOVA tells you <strong>whether</strong> there is evidence of differences in means,<br>
+but not <strong>which</strong> groups differ. (Post-hoc tests come later in statistics, not here.)</p>
+<hr>
+</section>
+<section id="kruskalwallis-test-non-parametric" class="level4" data-number="10.1.2">
+<h4 data-number="10.1.2" class="anchored" data-anchor-id="kruskalwallis-test-non-parametric"><span class="header-section-number">10.1.2</span> <strong>Kruskal–Wallis test (non-parametric)</strong></h4>
+<p>A rank-based alternative that makes fewer assumptions.</p>
+<p>Key features:</p>
+<ul>
+<li>Works on <strong>ranks</strong> rather than raw glucose values.<br>
+</li>
+<li>Does <em>not</em> assume normality.<br>
+</li>
+<li>Less sensitive to outliers and skewness.<br>
+</li>
+<li>Tests whether distributions differ in central tendency.<br>
+</li>
+<li>If significant, it indicates that <strong>at least one group</strong> is different,<br>
+but does not specify which.</li>
 </ul>
+<p>Kruskal–Wallis is appropriate when:</p>
+<ul>
+<li>Data are <strong>clearly skewed</strong>,<br>
+</li>
+<li>groups have <strong>different variances</strong>, or<br>
+</li>
+<li>the outcome is not well-summarised by the mean.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="descriptive-statistics-by-cereal-arm" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="descriptive-statistics-by-cereal-arm"><span class="header-section-number">10.2</span> 8.2 Descriptive statistics by cereal arm</h3>
+<p>Before thinking about p-values, we quantify and compare the groups.</p>
 <div id="multi_groups_code" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>groups_glucose <span class="op">=</span> [group[<span class="st">"glucose"</span>].values <span class="cf">for</span> _, group <span class="kw">in</span> df.groupby(<span class="st">"cereal_arm"</span>)]</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># One-way ANOVA</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>f_stat, p_anova <span class="op">=</span> st.f_oneway(<span class="op">*</span>groups_glucose)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Kruskal–Wallis test</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>h_stat, p_kw <span class="op">=</span> st.kruskal(<span class="op">*</span>groups_glucose)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"One-way ANOVA:"</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  F = </span><span class="sc">{</span>f_stat<span class="sc">:6.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_anova<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Kruskal–Wallis:"</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  H = </span><span class="sc">{</span>h_stat<span class="sc">:6.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_kw<span class="sc">:6.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="multi_groups_boxplot" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualise glucose values by cereal arm</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"cereal_arm"</span>, y<span class="op">=</span><span class="st">"glucose"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Blood glucose by cereal arm"</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Cereal arm"</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Glucose (arbitrary units)"</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 8(a). Descriptive statistics for glucose by cereal arm</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> df[<span class="st">"cereal_arm"</span>].unique()</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> []</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> g <span class="kw">in</span> groups:</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    series <span class="op">=</span> df.loc[df[<span class="st">"cereal_arm"</span>] <span class="op">==</span> g, <span class="st">"glucose"</span>].dropna()</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    rows.append({</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"cereal_arm"</span>: g,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"n"</span>: <span class="bu">len</span>(series),</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"mean"</span>: series.mean(),</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sd"</span>: series.std(),</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"median"</span>: series.median(),</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q1"</span>: series.quantile(<span class="fl">0.25</span>),</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"q3"</span>: series.quantile(<span class="fl">0.75</span>),</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>glucose_summary <span class="op">=</span> pd.DataFrame(rows)</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>glucose_summary[<span class="st">"IQR"</span>] <span class="op">=</span> glucose_summary[<span class="st">"q3"</span>] <span class="op">-</span> glucose_summary[<span class="st">"q1"</span>]</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>glucose_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="comparing-categories-chi-squared-tests-and-a-warning" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="comparing-categories-chi-squared-tests-and-a-warning"><span class="header-section-number">10</span> 9. Comparing categories: chi-squared tests and a warning</h2>
+<section id="visual-comparison" class="level3" data-number="10.3">
+<h3 data-number="10.3" class="anchored" data-anchor-id="visual-comparison"><span class="header-section-number">10.3</span> 8.3 Visual comparison</h3>
+<p>A plot is often more informative than a table for 3+ groups.</p>
+<p>Below we use a <strong>boxplot</strong> for each cereal arm to show:</p>
+<ul>
+<li>the median (central bar),<br>
+</li>
+<li>IQR (box),<br>
+</li>
+<li>overall spread,<br>
+</li>
+<li>potential asymmetry or outliers.</li>
+</ul>
+<p>If the shapes or spreads differ markedly, ANOVA assumptions may be strained, and Kruskal–Wallis may be more appropriate.</p>
+<div id="multi_groups_boxplot" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 8(b). Visual comparison: glucose by cereal arm</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"cereal_arm"</span>, y<span class="op">=</span><span class="st">"glucose"</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional jitter for showing individual observations</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>sns.stripplot(</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, x<span class="op">=</span><span class="st">"cereal_arm"</span>, y<span class="op">=</span><span class="st">"glucose"</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"black"</span>, size<span class="op">=</span><span class="dv">2</span>, jitter<span class="op">=</span><span class="fl">0.20</span>, alpha<span class="op">=</span><span class="fl">0.5</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Cereal arm"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Blood glucose (arbitrary units)"</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Blood glucose by cereal arm"</span>)</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="hypothesis-tests-anova-and-kruskalwallis" class="level3" data-number="10.4">
+<h3 data-number="10.4" class="anchored" data-anchor-id="hypothesis-tests-anova-and-kruskalwallis"><span class="header-section-number">10.4</span> 8.4 Hypothesis tests: ANOVA and Kruskal–Wallis</h3>
+<p>Now that we have:</p>
+<ul>
+<li>sample sizes,<br>
+</li>
+<li>measures of central tendency and spread,<br>
+</li>
+<li>and a visual sense of distributions,</li>
+</ul>
+<p>we can formally test whether glucose differs across the cereal arms.</p>
+<p>We apply:</p>
+<ul>
+<li><strong>One-way ANOVA</strong> (parametric): tests differences in <strong>means</strong><br>
+</li>
+<li><strong>Kruskal–Wallis</strong> (non-parametric): tests differences in <strong>ranked distributions</strong></li>
+</ul>
+<p>Neither test tells us <em>which</em> arms differ — only whether “<strong>at least one group is different</strong>”.</p>
+<div id="44af534b" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 8(c). ANOVA and Kruskal–Wallis tests</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare glucose values grouped by cereal arm</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>groups_glucose <span class="op">=</span> [group[<span class="st">"glucose"</span>].dropna().values</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>                  <span class="cf">for</span> _, group <span class="kw">in</span> df.groupby(<span class="st">"cereal_arm"</span>)]</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># One-way ANOVA</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>f_stat, p_anova <span class="op">=</span> st.f_oneway(<span class="op">*</span>groups_glucose)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Kruskal–Wallis test</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>h_stat, p_kw <span class="op">=</span> st.kruskal(<span class="op">*</span>groups_glucose)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hypothesis tests for glucose across cereal arms"</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"================================================"</span>)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"One-way ANOVA (differences in means):"</span>)</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  F-statistic = </span><span class="sc">{</span>f_stat<span class="sc">:6.3f}</span><span class="ss">"</span>)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  p-value     = </span><span class="sc">{</span>p_anova<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Kruskal–Wallis test (differences in distributions):"</span>)</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  H-statistic = </span><span class="sc">{</span>h_stat<span class="sc">:6.3f}</span><span class="ss">"</span>)</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  p-value     = </span><span class="sc">{</span>p_kw<span class="sc">:6.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="interpretation-prompts" class="level3" data-number="10.5">
+<h3 data-number="10.5" class="anchored" data-anchor-id="interpretation-prompts"><span class="header-section-number">10.5</span> 8.5 Interpretation prompts</h3>
+<ul>
+<li>Do the ANOVA and Kruskal–Wallis tests give similar conclusions?<br>
+</li>
+<li>Looking at the boxplots, do the group shapes and spreads support the ANOVA assumptions?<br>
+</li>
+<li>Which test feels more appropriate for these data? Why?<br>
+</li>
+<li>If the result is significant, what <em>follow-up</em> analysis might be needed<br>
+(not in this workbook) to identify <strong>which</strong> cereal arms differ?</li>
+</ul>
+<p>As always, <strong>visual inspection and descriptive statistics</strong> should guide the choice of method — p-values come last, not first.</p>
+<hr>
+</section>
+</section>
+<section id="comparing-categories-χ²-tests-and-a-warning" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="comparing-categories-χ²-tests-and-a-warning"><span class="header-section-number">11</span> 9. Comparing categories: χ² tests and a warning</h2>
 <p>Sometimes we want to know whether <strong>two categorical variables are associated</strong>, for example:</p>
 <ul>
 <li>Is the proportion of participants with <strong>high appetite</strong> different across <strong>test foods</strong>?</li>
 </ul>
-<p>For this we can use a <strong>chi-squared test of independence</strong> on a contingency table.</p>
+<p>To answer this, we use a <strong>χ² test of independence</strong> applied to a <strong>contingency table</strong>.</p>
+<hr>
+<section id="what-the-χ²-test-does" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="what-the-χ²-test-does"><span class="header-section-number">11.1</span> 9.1 What the χ² test does</h3>
+<p>A χ² test examines whether the <strong>observed counts</strong> in a table differ from the <strong>expected counts</strong> we would see if the two variables were <strong>independent</strong>.</p>
+<ul>
+<li><strong>H₀ (null):</strong> the variables are independent<br>
+</li>
+<li><strong>H₁ (alternative):</strong> the variables are associated in some way</li>
+</ul>
+<p>The test statistic compares:</p>
+<p><span class="math display">\[
+\sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}}
+\]</span></p>
+<p>Large discrepancies lead to large χ² values and small p-values.</p>
+<hr>
+</section>
+<section id="assumptions-of-the-χ²-test" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="assumptions-of-the-χ²-test"><span class="header-section-number">11.2</span> 9.2 Assumptions of the χ² test</h3>
+<p>The χ² test is simple, but it has important assumptions:</p>
+<ol type="1">
+<li><p><strong>Independence of observations</strong><br>
+Each participant contributes to one cell only.</p></li>
+<li><p><strong>Expected counts not too small</strong></p>
+<ul>
+<li>A common rule: expected counts ≥ 5 in <em>most</em> cells.<br>
+</li>
+<li>If many expected counts are &lt; 5, the χ² approximation becomes unreliable.</li>
+</ul></li>
+<li><p><strong>Categorical variables</strong><br>
+χ² is designed for counts, not continuous measurements.</p></li>
+</ol>
+<hr>
+</section>
+<section id="when-χ²-is-not-appropriate" class="level3" data-number="11.3">
+<h3 data-number="11.3" class="anchored" data-anchor-id="when-χ²-is-not-appropriate"><span class="header-section-number">11.3</span> 9.3 When χ² is <em>not</em> appropriate</h3>
+<ul>
+<li>If expected counts are small → use <strong>Fisher’s exact test</strong> (works well for 2×2 tables).<br>
+</li>
+<li>If categories are <strong>ordered</strong> (ordinal) → χ² ignores ordering.
+<ul>
+<li>Alternatives include <strong>Cochran–Armitage trend test</strong>, or treating the variable as ordinal in a regression model.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="a-caution-about-treating-categories-as-numbers" class="level3" data-number="11.4">
+<h3 data-number="11.4" class="anchored" data-anchor-id="a-caution-about-treating-categories-as-numbers"><span class="header-section-number">11.4</span> 9.4 A caution about treating categories as numbers</h3>
 <p>⚠️ <strong>Important reminder:</strong><br>
-- <strong>Categorical</strong> and <strong>ordinal</strong> data should <strong>not</strong> be analysed as if they were continuous without careful justification.<br>
-- For example, treating a 5-point Likert scale as if it were a continuous variable and running a t-test can be misleading.</p>
+- <strong>Categorical</strong> and <strong>ordinal</strong> variables should <strong>not</strong> be analysed as continuous** without strong justification.<br>
+- For example, treating a 5-point Likert scale as 1–5 and running a <em>t</em>-test<br>
+assumes equal spacing between categories — often untrue and misleading.</p>
+<hr>
+</section>
+<section id="workflow-for-a-χ²-test" class="level3" data-number="11.5">
+<h3 data-number="11.5" class="anchored" data-anchor-id="workflow-for-a-χ²-test"><span class="header-section-number">11.5</span> 9.5 Workflow for a χ² test</h3>
+<ol type="1">
+<li><strong>Create categories</strong> if needed (e.g., high vs not-high appetite).<br>
+</li>
+<li><strong>Construct a contingency table</strong> with <code>pd.crosstab</code>.<br>
+</li>
+<li><strong>Check expected counts</strong>.<br>
+</li>
+<li><strong>Run the χ² test of independence</strong>.<br>
+</li>
+<li>Interpret the p-value in the context of study design and effect size.</li>
+</ol>
+<p>(Optional: effect size such as Cramér’s V can summarise strength of association.)</p>
+<p>In the code cell below we create the categories, build the contingency table, and apply the χ² test.</p>
+<hr>
+</section>
+<section id="how-are-expected-counts-calculated" class="level3" data-number="11.6">
+<h3 data-number="11.6" class="anchored" data-anchor-id="how-are-expected-counts-calculated"><span class="header-section-number">11.6</span> How are expected counts calculated?</h3>
+<p>For a χ² test of independence, “expected” counts are the counts we <strong>would</strong> observe if the two categorical variables were <strong>independent</strong>.</p>
+<p>In a contingency table with:</p>
+<ul>
+<li>row totals<br>
+</li>
+<li>column totals<br>
+</li>
+<li>a grand total</li>
+</ul>
+<p>the expected count for each cell is calculated as:</p>
+<p><span class="math display">\[
+\text{Expected}_{ij}
+= \frac{(\text{Row total}_i)\;(\text{Column total}_j)}{\text{Grand total}}.
+\]</span></p>
+<p>In words:</p>
+<blockquote class="blockquote">
+<p><strong>If the variables were independent, the proportion in each column<br>
+should be the same across all rows.</strong></p>
+</blockquote>
+<p>So expected counts reflect the pattern we would see if <em>nothing interesting</em> were going on — just the product of the marginal proportions.</p>
+<p>A quick example:</p>
+<p>Suppose we have 100 participants:</p>
+<ul>
+<li>40 ate muesli, 60 did not<br>
+</li>
+<li>30 had high appetite, 70 did not</li>
+</ul>
+<p>Then the expected count for<br>
+“muesli <strong>and</strong> high appetite” is:</p>
+<p><span class="math display">\[
+\frac{40 \times 30}{100} = 12.
+\]</span></p>
+<p>This is the value we would see <em>on average</em> if cereal choice and appetite were truly independent.</p>
+<p>The χ² statistic then compares:</p>
+<ul>
+<li><strong>Observed</strong> counts (what we see)<br>
+</li>
+<li><strong>Expected</strong> counts (what independence predicts)</li>
+</ul>
+<p>Large discrepancies → large χ² → small p-value.</p>
 <div id="chi_squared_table" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple categorical outcome: high vs not-high appetite</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>high_cutoff <span class="op">=</span> <span class="dv">70</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"appetite_high"</span>] <span class="op">=</span> (df[<span class="st">"appetite_vas"</span>] <span class="op">&gt;=</span> high_cutoff).astype(<span class="bu">int</span>)</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Contingency table: appetite_high by food_arm</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.crosstab(df[<span class="st">"appetite_high"</span>], df[<span class="st">"food_arm"</span>])</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple categorical outcome: high vs not-high appetite</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>high_cutoff <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"appetite_high"</span>] <span class="op">=</span> (df[<span class="st">"appetite_vas"</span>] <span class="op">&gt;=</span> high_cutoff).astype(<span class="bu">int</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Contingency table: appetite_high by food_arm</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> pd.crosstab(df[<span class="st">"appetite_high"</span>], df[<span class="st">"food_arm"</span>])</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>table</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="chi_squared_test" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chi-squared test of independence</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>chi2, p_chi, dof, expected <span class="op">=</span> st.chi2_contingency(table)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Chi-squared test: chi2 = </span><span class="sc">{</span>chi2<span class="sc">:6.3f}</span><span class="ss">, df = </span><span class="sc">{</span>dof<span class="sc">}</span><span class="ss">, p = </span><span class="sc">{</span>p_chi<span class="sc">:6.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 9(c). Chi-squared test of independence — detailed output</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------------------------------------</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">0.0314</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Observed contingency table:"</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>display(table)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run chi-squared test</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>chi2, p_chi, dof, expected <span class="op">=</span> st.chi2_contingency(table)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>expected_df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    expected,</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>table.index,</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span>table.columns</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Expected counts (if variables were independent):"</span>)</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>display(expected_df)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Check assumption: any expected counts &lt; 5?</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>small_counts <span class="op">=</span> (expected <span class="op">&lt;</span> <span class="dv">5</span>).<span class="bu">sum</span>()</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>total_counts <span class="op">=</span> expected.size</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Expected count check: </span><span class="sc">{</span>small_counts<span class="sc">}</span><span class="ss"> of </span><span class="sc">{</span>total_counts<span class="sc">}</span><span class="ss"> cells &lt; 5"</span>)</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> small_counts <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"⚠️  Some expected counts are small. χ² approximation may be unreliable."</span>)</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"    Consider Fisher’s exact test for 2×2 tables or collapsing categories.</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="aead69d2" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of test results</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Chi-squared test of independence"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"================================"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"χ² statistic = </span><span class="sc">{</span>chi2<span class="sc">:6.3f}</span><span class="ss">"</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Degrees of freedom = </span><span class="sc">{</span>dof<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p-value = </span><span class="sc">{</span>p_chi<span class="sc">:6.4f}</span><span class="ss">"</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Decision at α = </span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">: "</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f"</span><span class="sc">{</span><span class="st">'reject H0 (evidence of association)'</span> <span class="cf">if</span> p_chi <span class="op">&lt;</span> alpha <span class="cf">else</span> <span class="st">'do NOT reject H0 (no clear evidence of association)'</span><span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Questions</strong></p>
 <ul>
@@ -1282,8 +2007,9 @@ A <strong>non-parametric test</strong> usually works on <strong>ranks</strong> a
 <li>Why is a chi-squared test more appropriate here than a t-test on the raw VAS scores split into two categories?</li>
 </ul>
 </section>
-<section id="statistics-tools-not-an-oracle" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="statistics-tools-not-an-oracle"><span class="header-section-number">11</span> 10. Statistics: tools, not an oracle</h2>
+</section>
+<section id="statistics-tools-not-an-oracle" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="statistics-tools-not-an-oracle"><span class="header-section-number">12</span> 10. Statistics: tools, not an oracle</h2>
 <p>Finally, a reminder:</p>
 <ul>
 <li>Statistical methods help us <strong>summarise uncertainty</strong> and <strong>quantify evidence</strong>.<br>
