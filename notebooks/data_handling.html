@@ -795,7 +795,7 @@ This matters for <strong>t-tests</strong> and confidence intervals based on smal
 </ul>
 <p>It has a single parameter <strong>λ (lambda)</strong>, which is both the <strong>mean</strong> and the <strong>variance</strong> of the distribution.</p>
 <p>Below we show the probabilities for a Poisson distribution with λ = 2.5.</p>
-<div id="poisson_distribution_plot" class="cell">
+<div id="poisson_distribution_plot" class="cell" data-execution_count="58">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Poisson distribution example (lambda = 2.5)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>lam <span class="op">=</span> <span class="fl">2.5</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>k_values <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">11</span>)  <span class="co"># 0 to 10 events</span></span>
@@ -806,6 +806,13 @@ This matters for <strong>t-tests</strong> and confidence intervals based on smal
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Number of events (k)"</span>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probability P(X = k)"</span>)</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="data_handling_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="looking-at-our-data-bp-change" class="level4" data-number="4.1.4">
