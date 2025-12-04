@@ -80,4 +80,24 @@ def simulate_practical_data(seed: int = 11088) -> pd.DataFrame:
         "appetite_vas": appetite,
     })
 
+    
+
     return df
+
+
+# ---------------------------------------------------------------------
+# Metadata describing the simulated practical dataset
+# ---------------------------------------------------------------------
+
+VARIABLES = pd.DataFrame(
+    [
+        {"variable": "sex",          "type": "categorical", "description": "Participant sex (F/M)"},
+        {"variable": "age",          "type": "continuous",  "description": "Age (years)"},
+        {"variable": "coffee_arm",   "type": "categorical", "description": "Coffee intervention: low / medium / high"},
+        {"variable": "cereal_arm",   "type": "categorical", "description": "Cereal: bran / cornflakes / muesli"},
+        {"variable": "food_arm",     "type": "categorical", "description": "Test food: apple / biscuit / yoghurt"},
+        {"variable": "bp_change",    "type": "continuous",  "description": "Change in blood pressure (mmHg)"},
+        {"variable": "glucose",      "type": "continuous",  "description": "Postprandial blood glucose (arbitrary units)"},
+        {"variable": "appetite_vas", "type": "continuous",  "description": "Appetite VAS (0–100)"}
+    ]
+)
