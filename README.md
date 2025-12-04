@@ -22,4 +22,8 @@ A rendered Quarto site with Colab launchers is available here:\
 
 -   Open notebooks in Google Colab via the website, or clone locally:
 
-\`\`\`bash git clone https://github.com/ggkuhnle/fb2nrp-datahandling.git cd fb2nrp-datahandling pip install -r requirements.txt jupyter notebook notebooks/
+```bash 
+git clone https://github.com/ggkuhnle/fb2nrp-datahandling.git 
+cd fb2nrp-datahandling 
+pip install -r requirements.txt 
+jupyter notebook notebooks/data_handling.ipynb
