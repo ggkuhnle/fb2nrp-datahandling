@@ -247,23 +247,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "FB2NRP - Data handling",
+    "title": "FB2NRP – Data handling",
     "section": "",
-    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
+    "text": "This page links to the FB2NRP data handling workbook.\nMost of you will arrive here from Blackboard.\nTo work through the practical in Google Colab:\n\nClick the Colab badge below.\n\nA new browser tab will open with the notebook in Google Colab.\n\nIf Google shows a warning about running code from GitHub, you can safely ignore it and continue – this is our teaching material.\n\nYou may also download the notebook and run it locally in Jupyter if you prefer.",
     "crumbs": [
       "Home",
-      "FB2NRP - Data handling"
+      "FB2NRP – Data handling"
     ]
   },
   {
-    "objectID": "index.html#practical-workbooks",
-    "href": "index.html#practical-workbooks",
-    "title": "FB2NRP - Data handling",
+    "objectID": "index.html#practical-workbook-data-handling",
+    "href": "index.html#practical-workbook-data-handling",
+    "title": "FB2NRP – Data handling",
     "section": "",
-    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
+    "text": "This page links to the FB2NRP data handling workbook.\nMost of you will arrive here from Blackboard.\nTo work through the practical in Google Colab:\n\nClick the Colab badge below.\n\nA new browser tab will open with the notebook in Google Colab.\n\nIf Google shows a warning about running code from GitHub, you can safely ignore it and continue – this is our teaching material.\n\nYou may also download the notebook and run it locally in Jupyter if you prefer.",
     "crumbs": [
       "Home",
-      "FB2NRP - Data handling"
+      "FB2NRP – Data handling"
     ]
   },
   {
