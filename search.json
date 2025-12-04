@@ -63,125 +63,6 @@
     "text": "8 8. Exercise\nUse the tools from this workbook to complete the following tasks:\n\nFor each outcome (bp_change, glucose, appetite_vas), explore its distribution (histograms, Q–Q plots, boxplots).\nDecide whether a parametric or non-parametric test is more appropriate for comparing intervention groups.\nPerform the comparison and report:\n\nThe test used and why.\nThe test statistic and p-value.\nYour conclusion using α = 0.0314.\n\nCreate one clear figure that summarises the main result for one of the interventions (coffee, cereal, or test food)."
   },
   {
-    "objectID": "howto_sandbox/python-cheatsheet.html",
-    "href": "howto_sandbox/python-cheatsheet.html",
-    "title": "",
-    "section": "",
-    "text": "Code"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#imports",
-    "href": "howto_sandbox/python-cheatsheet.html#imports",
-    "title": "",
-    "section": "1.1 0) Imports",
-    "text": "1.1 0) Imports\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Stats & modelling (install if missing)\nimport scipy.stats as stats\nimport statsmodels.api as sm\nimport statsmodels.formula_api as smf\nIf a library is missing in Colab:\n!pip -q install statsmodels\n# then: Runtime → Restart runtime"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#load-save-data",
-    "href": "howto_sandbox/python-cheatsheet.html#load-save-data",
-    "title": "",
-    "section": "1.2 1) Load / save data",
-    "text": "1.2 1) Load / save data\n# CSV from local upload or Drive\ndf = pd.read_csv(\"my_data.csv\")\n\n# CSV from GitHub (raw)\nurl = \"https://raw.githubusercontent.com/ggkuhnke/fb2nep-eoi/main/data/synthetic/fb2nep.csv\"\ndf = pd.read_csv(url)\n\n# Save\ndf.to_csv(\"output.csv\", index=False)"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#quick-look",
-    "href": "howto_sandbox/python-cheatsheet.html#quick-look",
-    "title": "",
-    "section": "1.3 2) Quick look",
-    "text": "1.3 2) Quick look\ndf.head()\ndf.tail()\ndf.shape\ndf.info()\ndf.describe(include=\"all\")\ndf[\"sex\"].value_counts(dropna=False)\ndf.isna().mean()  # fraction missing per column"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#select-filter-transform",
-    "href": "howto_sandbox/python-cheatsheet.html#select-filter-transform",
-    "title": "",
-    "section": "1.4 3) Select / filter / transform",
-    "text": "1.4 3) Select / filter / transform\n# Columns\ndf[[\"age\", \"bmi\"]]\n\n# Rows\ndf[df[\"age\"] &gt;= 50]\n\n# New columns\ndf[\"bmi_sq\"] = df[\"bmi\"] ** 2\n\n# Rename\ndf = df.rename(columns={\"cholesterol\": \"chol\"})\n\n# Sort\ndf = df.sort_values([\"age\", \"bmi\"], ascending=[True, False])"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#grouping-summaries",
-    "href": "howto_sandbox/python-cheatsheet.html#grouping-summaries",
-    "title": "",
-    "section": "1.5 4) Grouping & summaries",
-    "text": "1.5 4) Grouping & summaries\ndf.groupby(\"group\")[\"bmi\"].mean()\ndf.groupby([\"group\", \"sex\"])[\"sbp\"].agg([\"mean\", \"std\", \"count\"])\n\n# Crosstab\npd.crosstab(df[\"group\"], df[\"sex\"], margins=True, normalize=\"index\")"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#plotting-quick",
-    "href": "howto_sandbox/python-cheatsheet.html#plotting-quick",
-    "title": "",
-    "section": "1.6 5) Plotting (quick)",
-    "text": "1.6 5) Plotting (quick)\ndf[\"bmi\"].hist(bins=20)\nplt.title(\"BMI distribution\")\nplt.xlabel(\"BMI\"); plt.ylabel(\"Count\")\nplt.show()\n\n# Boxplot by group\ndf.boxplot(column=\"sbp\", by=\"group\")\nplt.suptitle(\"\"); plt.title(\"SBP by group\"); plt.xlabel(\"group\"); plt.ylabel(\"SBP\")\nplt.show()\n\n# Scatter\nplt.scatter(df[\"bmi\"], df[\"sbp\"])\nplt.xlabel(\"BMI\"); plt.ylabel(\"SBP\"); plt.show()"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#basic-stats",
-    "href": "howto_sandbox/python-cheatsheet.html#basic-stats",
-    "title": "",
-    "section": "1.7 6) Basic stats",
-    "text": "1.7 6) Basic stats\n# Two-sample t-test\na = df.loc[df[\"group\"] == \"A\", \"sbp\"]\nb = df.loc[df[\"group\"] == \"B\", \"sbp\"]\nstats.ttest_ind(a, b, equal_var=False, nan_policy=\"omit\")\n\n# Chi-square test on a 2x2\ntab = pd.crosstab(df[\"group\"], df[\"sex\"])\nstats.chi2_contingency(tab)"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#simple-models-statsmodels",
-    "href": "howto_sandbox/python-cheatsheet.html#simple-models-statsmodels",
-    "title": "",
-    "section": "1.8 7) Simple models (statsmodels)",
-    "text": "1.8 7) Simple models (statsmodels)\n# OLS regression\nmodel = smf.ols(\"sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nprint(model.summary())\n\n# Logistic regression (binary outcome)\n# e.g., 'high_sbp' is 0/1\nlogit = smf.logit(\"high_sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nprint(logit.summary())"
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#jupyter-basics",
-    "href": "howto_sandbox/python-cheatsheet.html#jupyter-basics",
-    "title": "",
-    "section": "1.9 8) Jupyter basics",
-    "text": "1.9 8) Jupyter basics\n\nRun cell: Shift + Enter\nInsert cell above/below: A / B\nInterrupt: stop button (■) or Kernel/Runtime → Interrupt\nRestart: Kernel/Runtime → Restart\nMarkdown cell: text with # headings, **bold**, lists, etc."
-  },
-  {
-    "objectID": "howto_sandbox/python-cheatsheet.html#reproducibility",
-    "href": "howto_sandbox/python-cheatsheet.html#reproducibility",
-    "title": "",
-    "section": "1.10 9) Reproducibility",
-    "text": "1.10 9) Reproducibility\nSEED = 11088\nnp.random.seed(SEED)\n\nRecord: dataset version, random seed, and exact code you ran."
-  },
-  {
-    "objectID": "howto_sandbox/index.html",
-    "href": "howto_sandbox/index.html",
-    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
-    "section": "",
-    "text": "This page shows you how to open and use the module notebooks in Google Colab (or locally in Jupyter). It includes direct links and easy to understand guidance. If you have never used Python before, you are in the right place."
-  },
-  {
-    "objectID": "howto_sandbox/index.html#quick-links",
-    "href": "howto_sandbox/index.html#quick-links",
-    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
-    "section": "1 Quick links",
-    "text": "1 Quick links\nOpen the notebooks directly in Colab:\n\nIntroduction Notebook\n · View on GitHub\nPlayground (Sandbox)\n · View on GitHub\n\nPrintable cheat‑sheet:\n- python‑cheatsheet.md (open “Raw”, then save/print)\n\nIf you fork or use a different repository, update the links by replacing ggkuhnle/fb2nep-epi with your repo slug.\n\n\n\nWhat does “fork” mean on GitHub?\n\nA fork is your own copy of someone else’s GitHub repository under your GitHub account.\nYou can change it freely without affecting the original. Your fork can still receive updates from the original (“upstream”).\nWhy fork? - You want your own version of the materials. - You don’t have write permission on the original repo. - You plan to customise and maybe propose changes back later (via pull requests).\nHow to fork (GitHub web): 1. Open the original repo (e.g. https://github.com/ggkuhnle/fb2nep-epi). 2. Click Fork (top-right) → choose your account → Create fork. 3. You now have https://github.com/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;.\nUpdate links after forking Replace the owner/repo part with your fork’s repo slug: - GitHub view:\nhttps://github.com/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;/blob/main/path/to/notebook.ipynb - Colab badge:\nhttps://colab.research.google.com/github/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;/blob/main/path/to/notebook.ipynb\nFork vs. clone vs. branch (quick) - Fork: makes your own repo on GitHub. - Clone: makes a local copy on your computer. - Branch: a line of development inside one repo (yours or the original).\nKeeping your fork up-to-date - On GitHub: open your fork and click Sync fork / Fetch upstream. - With Git (advanced):\n```bash git remote add upstream https://github.com/ggkuhnle/fb2nep-epi.git git fetch upstream git checkout main git merge upstream/main git push"
-  },
-  {
-    "objectID": "howto_sandbox/index.html#how-to-open-a-notebook-in-colab-stepbystep",
-    "href": "howto_sandbox/index.html#how-to-open-a-notebook-in-colab-stepbystep",
-    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
-    "section": "2 How to open a notebook in Colab (step‑by‑step)",
-    "text": "2 How to open a notebook in Colab (step‑by‑step)\n\nWhat is Colab? Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\nRight-clicking will open Colab in a new browser window.\n\n\nClick an Open in Colab button above. Colab will load the notebook from GitHub.\nAt the top‑right, click Connect if it isn’t already connected. This starts a fresh, temporary Python session (a “runtime”).\n\nYou may see a warning like “This notebook was not authored by Google.”\n\nClick Run anyway. Our notebooks are plain text and safe to run.\n\n\nYou might also see “Warning: This notebook requires permissions to run.”\n\nClick Run anyway. Colab sandboxes code; nothing runs on your computer.\n\n\nTo run a cell, click the small ▶ button on its left, or press Shift + Enter.\n\nTo run every cell from top to bottom, go to Runtime → Run all.\n\nTo save your own editable copy, go to File → Save a copy in Drive. You now have a personal copy you can edit freely.\n\n\n2.1 Useful Colab options\n\nRuntime → Restart runtime resets the session if things get stuck.\n\nRuntime → Change runtime type (we use Python 3; no GPU needed).\n\nFile → Download lets you save the executed notebook as .ipynb or PDF."
-  },
-  {
-    "objectID": "howto_sandbox/index.html#working-locally-in-jupyter-optional",
-    "href": "howto_sandbox/index.html#working-locally-in-jupyter-optional",
-    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
-    "section": "3 Working locally in Jupyter (optional)",
-    "text": "3 Working locally in Jupyter (optional)\nIf you prefer local execution: 1. Install Anaconda or Miniconda, then open Jupyter Lab.\n2. Download the .ipynb files from GitHub and open them in Jupyter Lab.\n3. Run cells with Shift + Enter as in Colab."
-  },
-  {
-    "objectID": "howto_sandbox/index.html#troubleshooting",
-    "href": "howto_sandbox/index.html#troubleshooting",
-    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
-    "section": "4 Troubleshooting",
-    "text": "4 Troubleshooting\n\nModuleNotFoundError (e.g. statsmodels): run the cell that starts with !pip install ..., then Runtime → Restart runtime, and re‑run the code.\n\nKernel crashed / out of memory: restart the runtime. Don’t open huge datasets in this sandbox.\n\nLong‑running cells: click the stop icon (■) next to the cell number, or Runtime → Interrupt execution."
-  },
-  {
-    "objectID": "howto_sandbox/index.html#what-you-will-learn-here",
-    "href": "howto_sandbox/index.html#what-you-will-learn-here",
-    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
-    "section": "5 What you will learn here",
-    "text": "5 What you will learn here\n\nHow to run Python cells safely in the cloud (Colab).\n\nHow to make small edits and immediately see their effect.\n\nHow to generate simple synthetic data and make basic plots & analyses you’ll reuse in FB2NEP.\n\nNow jump into the Introduction Notebook first, then play in the Playground."
-  },
-  {
     "objectID": "howto_sandbox/Introduction-Notebook.html",
     "href": "howto_sandbox/Introduction-Notebook.html",
     "title": "Introduction to Colab & Python (for FB2NEP)",
@@ -266,6 +147,147 @@
     "text": "11 11. Loading data (reference)\n\nGood to know: In FB2NEP teaching notebooks, data are loaded automatically. You do not need to do this yourself for the module activities. The examples below are here in case you want to practise with your own files.\n\n\n11.1 Option A — Load a small CSV from the web (GitHub raw)\nUse this for public CSVs hosted online (fastest way to test).\n\nimport pandas as pd\nurl = \"https://raw.githubusercontent.com/ggkuhnle/fb2nep-epi/main/data/synthetic/fb2nep.csv\"  # replace\ndf = pd.read_csv(url)\ndf.head()\n\n\n\n11.2 Option B — Upload a file from your computer (Colab)\nUncomment and run the lines below, then pick a CSV. Colab will store it temporarily in the session.\n\n# from google.colab import files\n# up = files.upload()                            # choose a file\n# import io\n# import pandas as pd\n# name = next(iter(up))                          # first uploaded filename\n# df = pd.read_csv(io.BytesIO(up[name]))\n# df.head()\n\n\n\n11.3 Option C — Load/save via Google Drive (persistent across Colab sessions)\nMount Drive, then read/write using a path in your Drive.\n\n# from google.colab import drive\n# drive.mount('/content/drive')\n# import pandas as pd\n# df = pd.read_csv('/content/drive/MyDrive/fb2nep/example.csv')\n# df.head()\n\n# Save back to Drive\n# df.to_csv('/content/drive/MyDrive/fb2nep/output.csv', index=False)\n\n\n\n11.4 Quick checks (useful with any dataset)\n\nWhat are the dimensions? What columns exist? Any missing values?\n\n\nprint(\"Shape:\", df.shape)\ndf.info()\ndf.isna().mean()  # fraction missing per column\n\n\n\n11.5 Optional — Save a copy locally (Colab session storage)\nFiles saved here can be downloaded from the Files pane on the left.\n\ndf.to_csv('my_output.csv', index=False)\nprint(\"Saved as my_output.csv — in Colab, open the Files pane → three dots → Download.\")"
   },
   {
+    "objectID": "howto_sandbox/python-cheatsheet.html",
+    "href": "howto_sandbox/python-cheatsheet.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#imports",
+    "href": "howto_sandbox/python-cheatsheet.html#imports",
+    "title": "",
+    "section": "1.1 0) Imports",
+    "text": "1.1 0) Imports\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Stats & modelling (install if missing)\nimport scipy.stats as stats\nimport statsmodels.api as sm\nimport statsmodels.formula_api as smf\nIf a library is missing in Colab:\n!pip -q install statsmodels\n# then: Runtime → Restart runtime"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#load-save-data",
+    "href": "howto_sandbox/python-cheatsheet.html#load-save-data",
+    "title": "",
+    "section": "1.2 1) Load / save data",
+    "text": "1.2 1) Load / save data\n# CSV from local upload or Drive\ndf = pd.read_csv(\"my_data.csv\")\n\n# CSV from GitHub (raw)\nurl = \"https://raw.githubusercontent.com/ggkuhnke/fb2nep-eoi/main/data/synthetic/fb2nep.csv\"\ndf = pd.read_csv(url)\n\n# Save\ndf.to_csv(\"output.csv\", index=False)"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#quick-look",
+    "href": "howto_sandbox/python-cheatsheet.html#quick-look",
+    "title": "",
+    "section": "1.3 2) Quick look",
+    "text": "1.3 2) Quick look\ndf.head()\ndf.tail()\ndf.shape\ndf.info()\ndf.describe(include=\"all\")\ndf[\"sex\"].value_counts(dropna=False)\ndf.isna().mean()  # fraction missing per column"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#select-filter-transform",
+    "href": "howto_sandbox/python-cheatsheet.html#select-filter-transform",
+    "title": "",
+    "section": "1.4 3) Select / filter / transform",
+    "text": "1.4 3) Select / filter / transform\n# Columns\ndf[[\"age\", \"bmi\"]]\n\n# Rows\ndf[df[\"age\"] &gt;= 50]\n\n# New columns\ndf[\"bmi_sq\"] = df[\"bmi\"] ** 2\n\n# Rename\ndf = df.rename(columns={\"cholesterol\": \"chol\"})\n\n# Sort\ndf = df.sort_values([\"age\", \"bmi\"], ascending=[True, False])"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#grouping-summaries",
+    "href": "howto_sandbox/python-cheatsheet.html#grouping-summaries",
+    "title": "",
+    "section": "1.5 4) Grouping & summaries",
+    "text": "1.5 4) Grouping & summaries\ndf.groupby(\"group\")[\"bmi\"].mean()\ndf.groupby([\"group\", \"sex\"])[\"sbp\"].agg([\"mean\", \"std\", \"count\"])\n\n# Crosstab\npd.crosstab(df[\"group\"], df[\"sex\"], margins=True, normalize=\"index\")"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#plotting-quick",
+    "href": "howto_sandbox/python-cheatsheet.html#plotting-quick",
+    "title": "",
+    "section": "1.6 5) Plotting (quick)",
+    "text": "1.6 5) Plotting (quick)\ndf[\"bmi\"].hist(bins=20)\nplt.title(\"BMI distribution\")\nplt.xlabel(\"BMI\"); plt.ylabel(\"Count\")\nplt.show()\n\n# Boxplot by group\ndf.boxplot(column=\"sbp\", by=\"group\")\nplt.suptitle(\"\"); plt.title(\"SBP by group\"); plt.xlabel(\"group\"); plt.ylabel(\"SBP\")\nplt.show()\n\n# Scatter\nplt.scatter(df[\"bmi\"], df[\"sbp\"])\nplt.xlabel(\"BMI\"); plt.ylabel(\"SBP\"); plt.show()"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#basic-stats",
+    "href": "howto_sandbox/python-cheatsheet.html#basic-stats",
+    "title": "",
+    "section": "1.7 6) Basic stats",
+    "text": "1.7 6) Basic stats\n# Two-sample t-test\na = df.loc[df[\"group\"] == \"A\", \"sbp\"]\nb = df.loc[df[\"group\"] == \"B\", \"sbp\"]\nstats.ttest_ind(a, b, equal_var=False, nan_policy=\"omit\")\n\n# Chi-square test on a 2x2\ntab = pd.crosstab(df[\"group\"], df[\"sex\"])\nstats.chi2_contingency(tab)"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#simple-models-statsmodels",
+    "href": "howto_sandbox/python-cheatsheet.html#simple-models-statsmodels",
+    "title": "",
+    "section": "1.8 7) Simple models (statsmodels)",
+    "text": "1.8 7) Simple models (statsmodels)\n# OLS regression\nmodel = smf.ols(\"sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nprint(model.summary())\n\n# Logistic regression (binary outcome)\n# e.g., 'high_sbp' is 0/1\nlogit = smf.logit(\"high_sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nprint(logit.summary())"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#jupyter-basics",
+    "href": "howto_sandbox/python-cheatsheet.html#jupyter-basics",
+    "title": "",
+    "section": "1.9 8) Jupyter basics",
+    "text": "1.9 8) Jupyter basics\n\nRun cell: Shift + Enter\nInsert cell above/below: A / B\nInterrupt: stop button (■) or Kernel/Runtime → Interrupt\nRestart: Kernel/Runtime → Restart\nMarkdown cell: text with # headings, **bold**, lists, etc."
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#reproducibility",
+    "href": "howto_sandbox/python-cheatsheet.html#reproducibility",
+    "title": "",
+    "section": "1.10 9) Reproducibility",
+    "text": "1.10 9) Reproducibility\nSEED = 11088\nnp.random.seed(SEED)\n\nRecord: dataset version, random seed, and exact code you ran."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FB2NRP - Data handling",
+    "section": "",
+    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
+    "crumbs": [
+      "Home",
+      "FB2NRP - Data handling"
+    ]
+  },
+  {
+    "objectID": "index.html#practical-workbooks",
+    "href": "index.html#practical-workbooks",
+    "title": "FB2NRP - Data handling",
+    "section": "",
+    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
+    "crumbs": [
+      "Home",
+      "FB2NRP - Data handling"
+    ]
+  },
+  {
+    "objectID": "howto_sandbox/index.html",
+    "href": "howto_sandbox/index.html",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "",
+    "text": "This page shows you how to open and use the module notebooks in Google Colab (or locally in Jupyter). It includes direct links and easy to understand guidance. If you have never used Python before, you are in the right place."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#quick-links",
+    "href": "howto_sandbox/index.html#quick-links",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "1 Quick links",
+    "text": "1 Quick links\nOpen the notebooks directly in Colab:\n\nIntroduction Notebook\n · View on GitHub\nPlayground (Sandbox)\n · View on GitHub\n\nPrintable cheat‑sheet:\n- python‑cheatsheet.md (open “Raw”, then save/print)\n\nIf you fork or use a different repository, update the links by replacing ggkuhnle/fb2nep-epi with your repo slug.\n\n\n\nWhat does “fork” mean on GitHub?\n\nA fork is your own copy of someone else’s GitHub repository under your GitHub account.\nYou can change it freely without affecting the original. Your fork can still receive updates from the original (“upstream”).\nWhy fork? - You want your own version of the materials. - You don’t have write permission on the original repo. - You plan to customise and maybe propose changes back later (via pull requests).\nHow to fork (GitHub web): 1. Open the original repo (e.g. https://github.com/ggkuhnle/fb2nep-epi). 2. Click Fork (top-right) → choose your account → Create fork. 3. You now have https://github.com/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;.\nUpdate links after forking Replace the owner/repo part with your fork’s repo slug: - GitHub view:\nhttps://github.com/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;/blob/main/path/to/notebook.ipynb - Colab badge:\nhttps://colab.research.google.com/github/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;/blob/main/path/to/notebook.ipynb\nFork vs. clone vs. branch (quick) - Fork: makes your own repo on GitHub. - Clone: makes a local copy on your computer. - Branch: a line of development inside one repo (yours or the original).\nKeeping your fork up-to-date - On GitHub: open your fork and click Sync fork / Fetch upstream. - With Git (advanced):\n```bash git remote add upstream https://github.com/ggkuhnle/fb2nep-epi.git git fetch upstream git checkout main git merge upstream/main git push"
+  },
+  {
+    "objectID": "howto_sandbox/index.html#how-to-open-a-notebook-in-colab-stepbystep",
+    "href": "howto_sandbox/index.html#how-to-open-a-notebook-in-colab-stepbystep",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "2 How to open a notebook in Colab (step‑by‑step)",
+    "text": "2 How to open a notebook in Colab (step‑by‑step)\n\nWhat is Colab? Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\nRight-clicking will open Colab in a new browser window.\n\n\nClick an Open in Colab button above. Colab will load the notebook from GitHub.\nAt the top‑right, click Connect if it isn’t already connected. This starts a fresh, temporary Python session (a “runtime”).\n\nYou may see a warning like “This notebook was not authored by Google.”\n\nClick Run anyway. Our notebooks are plain text and safe to run.\n\n\nYou might also see “Warning: This notebook requires permissions to run.”\n\nClick Run anyway. Colab sandboxes code; nothing runs on your computer.\n\n\nTo run a cell, click the small ▶ button on its left, or press Shift + Enter.\n\nTo run every cell from top to bottom, go to Runtime → Run all.\n\nTo save your own editable copy, go to File → Save a copy in Drive. You now have a personal copy you can edit freely.\n\n\n2.1 Useful Colab options\n\nRuntime → Restart runtime resets the session if things get stuck.\n\nRuntime → Change runtime type (we use Python 3; no GPU needed).\n\nFile → Download lets you save the executed notebook as .ipynb or PDF."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#working-locally-in-jupyter-optional",
+    "href": "howto_sandbox/index.html#working-locally-in-jupyter-optional",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "3 Working locally in Jupyter (optional)",
+    "text": "3 Working locally in Jupyter (optional)\nIf you prefer local execution: 1. Install Anaconda or Miniconda, then open Jupyter Lab.\n2. Download the .ipynb files from GitHub and open them in Jupyter Lab.\n3. Run cells with Shift + Enter as in Colab."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#troubleshooting",
+    "href": "howto_sandbox/index.html#troubleshooting",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "4 Troubleshooting",
+    "text": "4 Troubleshooting\n\nModuleNotFoundError (e.g. statsmodels): run the cell that starts with !pip install ..., then Runtime → Restart runtime, and re‑run the code.\n\nKernel crashed / out of memory: restart the runtime. Don’t open huge datasets in this sandbox.\n\nLong‑running cells: click the stop icon (■) next to the cell number, or Runtime → Interrupt execution."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#what-you-will-learn-here",
+    "href": "howto_sandbox/index.html#what-you-will-learn-here",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "5 What you will learn here",
+    "text": "5 What you will learn here\n\nHow to run Python cells safely in the cloud (Colab).\n\nHow to make small edits and immediately see their effect.\n\nHow to generate simple synthetic data and make basic plots & analyses you’ll reuse in FB2NEP.\n\nNow jump into the Introduction Notebook first, then play in the Playground."
+  },
+  {
     "objectID": "howto_sandbox/Playground.html",
     "href": "howto_sandbox/Playground.html",
     "title": "Playground (Sandbox)",
@@ -341,27 +363,5 @@
     "title": "Playground (Sandbox)",
     "section": "10 10) Your turn — try these",
     "text": "10 10) Your turn — try these\n\nChange GROUP_EFFECT to +2.0 (so group B has higher SBP) and re-generate. What happens to the t-test and model coefficients?\n\nIncrease N to 2000. Do p-values change? Why?\n\nAdd C(group):C(sex) interaction to the OLS formula. Does it help?\n\nCreate a new variable waist = 2.5*bmi + noise and see how it relates to SBP."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "FB2NRP - Data handling",
-    "section": "",
-    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
-    "crumbs": [
-      "Home",
-      "FB2NRP - Data handling"
-    ]
-  },
-  {
-    "objectID": "index.html#practical-workbooks",
-    "href": "index.html#practical-workbooks",
-    "title": "FB2NRP - Data handling",
-    "section": "",
-    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
-    "crumbs": [
-      "Home",
-      "FB2NRP - Data handling"
-    ]
   }
 ]
