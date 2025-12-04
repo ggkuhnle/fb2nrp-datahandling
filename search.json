@@ -1,0 +1,367 @@
+[
+  {
+    "objectID": "notebooks/data_handling.html",
+    "href": "notebooks/data_handling.html",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "",
+    "text": "Version 0.0.1\nThis workbook introduces the foundations of data handling, using a small synthetic RCT dataset that mimics the Part 2 practicals:\nWe simulate data (rather than use student data), including age and sex.\nBy the end of the workbook, you should be able to:\nRun the first code cell to configure the environment and load helper functions.\nimport os\nimport sys\nimport runpy\nimport pathlib\n\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport scipy.stats as st\n\n# Optional: adjust figure style (can be removed if you prefer defaults)\nplt.style.use(\"ggplot\")\n\n# Load helper function that simulates the practical data.\n# The file helpers/sim_helpers.py must be present in the repository.\nhelpers_path = pathlib.Path(\"../helpers/sim_helpers.py\")\nrunpy.run_path(helpers_path)"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#generate-the-synthetic-dataset",
+    "href": "notebooks/data_handling.html#generate-the-synthetic-dataset",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "1 1. Generate the synthetic dataset",
+    "text": "1 1. Generate the synthetic dataset\nWe now generate a synthetic dataset that mimics the Part 2 practicals.\n\nCoffee intervention with three arms: low, medium, high.\n\nCereal intervention with three arms: bran, cornflakes, muesli.\n\nTest foods for appetite VAS: apple, biscuit, yoghurt.\n\nWe also include age and sex for each participant.\n\n# Generate the dataset\ndf = simulate_practical_data(seed=11088)\n\n# Display the first few rows\ndf.head()"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#inspecting-the-data",
+    "href": "notebooks/data_handling.html#inspecting-the-data",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "2 2. Inspecting the data",
+    "text": "2 2. Inspecting the data\nBefore any analysis, we need to understand the structure of the dataset and check for obvious problems:\n\nAre all variables present?\n\nAre data types sensible (numeric vs categorical)?\n\nAre there missing values?\n\nAre there any clearly impossible values?\n\n\n# Overall structure of the DataFrame\ndf.info()\n\n\n# Summary statistics (including categorical variables)\ndf.describe(include=\"all\")\n\n\n# Count of missing values for each variable\ndf.isna().sum()\n\n\n# Numerical summary (range, mean, quartiles) for numeric variables\ndf.describe()"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#exploring-distributions",
+    "href": "notebooks/data_handling.html#exploring-distributions",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "3 3. Exploring distributions",
+    "text": "3 3. Exploring distributions\nChoice of statistical test depends strongly on the underlying distribution.\nHere we:\n\nPlot histograms and density curves.\nInspect normality with a Q–Q plot.\nCompare distributions across intervention arms using boxplots.\n\n\n# Histogram and density for blood pressure change\nsns.histplot(df[\"bp_change\"], kde=True)\nplt.title(\"Distribution of BP change\")\nplt.xlabel(\"BP change (mmHg)\")\nplt.ylabel(\"Count\")\nplt.show()\n\n\n# Q–Q plot to assess normality of BP change\nst.probplot(df[\"bp_change\"], dist=\"norm\", plot=plt)\nplt.title(\"Q–Q plot of BP change\")\nplt.show()\n\n\n# Boxplot of BP change by coffee arm\nsns.boxplot(data=df, x=\"coffee_arm\", y=\"bp_change\")\nplt.title(\"BP change by coffee intervention arm\")\nplt.xlabel(\"Coffee arm\")\nplt.ylabel(\"BP change (mmHg)\")\nplt.show()"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#comparing-two-arms-parametric-and-non-parametric-tests",
+    "href": "notebooks/data_handling.html#comparing-two-arms-parametric-and-non-parametric-tests",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "4 4. Comparing two arms: parametric and non-parametric tests",
+    "text": "4 4. Comparing two arms: parametric and non-parametric tests\nWe now compare BP change between two coffee arms (e.g. low vs high).\n\nParametric test: independent-samples t-test (assumes approximate normality).\n\nNon-parametric test: Mann–Whitney U test (uses ranks, does not assume normality).\n\nWe also start using a slightly unusual significance threshold:\nα = 0.0314 (to emphasise that 0.05 is an arbitrary convention).\n\n# Select two arms for comparison: low vs high coffee\nbp_low = df[df[\"coffee_arm\"] == \"low\"][\"bp_change\"]\nbp_high = df[df[\"coffee_arm\"] == \"high\"][\"bp_change\"]\n\n# Independent-samples t-test\nt_stat, p_t = st.ttest_ind(bp_low, bp_high, equal_var=False)\n\n# Mann–Whitney U test (non-parametric)\nu_stat, p_u = st.mannwhitneyu(bp_low, bp_high, alternative=\"two-sided\")\n\nalpha = 0.0314\n\nprint(f\"t-test:        t = {t_stat:.3f}, p = {p_t:.4f}\")\nprint(f\"Mann–Whitney:  U = {u_stat:.1f}, p = {p_u:.4f}\")\nprint(f\"Using alpha = {alpha}\")\n\nQuestion for you\n\nDo the conclusions from the t-test and Mann–Whitney test agree?\n\nHow would the conclusion change if we used α = 0.05 instead of 0.0314?"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#comparing-multiple-arms",
+    "href": "notebooks/data_handling.html#comparing-multiple-arms",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "5 5. Comparing multiple arms",
+    "text": "5 5. Comparing multiple arms\nNow consider blood glucose across different cereal arms:\n\nbran\n\ncornflakes\n\nmuesli\n\nWe can use:\n\nANOVA (parametric, assumes approximate normality and equal variances).\n\nKruskal–Wallis test (non-parametric, based on ranks).\n\n\n# Prepare lists of glucose values by cereal arm\ngroups_glucose = [group[\"glucose\"].values for _, group in df.groupby(\"cereal_arm\")]\n\n# One-way ANOVA\nf_stat, p_anova = st.f_oneway(*groups_glucose)\n\n# Kruskal–Wallis test\nh_stat, p_kw = st.kruskal(*groups_glucose)\n\nprint(\"One-way ANOVA:\")\nprint(f\"  F = {f_stat:.3f}, p = {p_anova:.4f}\")\nprint(\"Kruskal–Wallis test:\")\nprint(f\"  H = {h_stat:.3f}, p = {p_kw:.4f}\")\n\n\n# Visualise glucose values by cereal arm\nsns.boxplot(data=df, x=\"cereal_arm\", y=\"glucose\")\nplt.title(\"Blood glucose by cereal arm\")\nplt.xlabel(\"Cereal arm\")\nplt.ylabel(\"Glucose (arbitrary units)\")\nplt.show()"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#why-p-0.05-is-not-a-magical-threshold",
+    "href": "notebooks/data_handling.html#why-p-0.05-is-not-a-magical-threshold",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "6 6. Why p = 0.05 is not a magical threshold",
+    "text": "6 6. Why p = 0.05 is not a magical threshold\nIn many papers, p &lt; 0.05 is treated as “significant” and p ≥ 0.05 as “not significant”.\nHere we simulate 10 000 RCTs with no true difference between two groups. For each simulated experiment, we:\n\nDraw two random samples from the same normal distribution.\n\nRun an independent-samples t-test.\n\nStore the resulting p-value.\n\nIf there is really no effect, p-values should be uniformly distributed between 0 and 1, and about 5% of them should still be below 0.05 just by chance.\n\n# Simulate 10 000 null experiments\nrng = np.random.default_rng(11088)\np_values = []\n\nn_per_group = 30\nn_sim = 10000\n\nfor _ in range(n_sim):\n    x = rng.normal(0, 1, n_per_group)\n    y = rng.normal(0, 1, n_per_group)\n    _, p = st.ttest_ind(x, y, equal_var=False)\n    p_values.append(p)\n\n# Plot the distribution of p-values\nsns.histplot(p_values, bins=30)\nplt.axvline(0.05, color=\"red\", linestyle=\"--\", label=\"0.05\")\nplt.title(\"Distribution of p-values when there is NO true effect\")\nplt.xlabel(\"p-value\")\nplt.ylabel(\"Count\")\nplt.legend()\nplt.show()\n\nReflection\n\nRoughly what proportion of p-values fall below 0.05?\n\nWhat does this tell you about using p &lt; 0.05 as a hard decision rule?\n\nHow might scientific conclusions be distorted if we only publish or believe “significant” findings?"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#presenting-results-graphically",
+    "href": "notebooks/data_handling.html#presenting-results-graphically",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "7 7. Presenting results graphically",
+    "text": "7 7. Presenting results graphically\nWell-designed figures often communicate results more clearly than tables alone.\nFor approximately normal outcomes, we can show means with confidence intervals. For skewed outcomes (such as VAS scores), boxplots or violin plots can be more informative.\n\n# Example: mean BP change with 95% confidence intervals by coffee arm\nsns.pointplot(data=df, x=\"coffee_arm\", y=\"bp_change\", ci=95, dodge=True)\nplt.title(\"Mean BP change with 95% CI by coffee arm\")\nplt.xlabel(\"Coffee arm\")\nplt.ylabel(\"BP change (mmHg)\")\nplt.show()\n\n\n# Example: appetite VAS by test food (distribution often skewed)\nsns.boxplot(data=df, x=\"food_arm\", y=\"appetite_vas\")\nplt.title(\"Appetite VAS by test food\")\nplt.xlabel(\"Test food\")\nplt.ylabel(\"Appetite VAS (0–100)\")\nplt.show()"
+  },
+  {
+    "objectID": "notebooks/data_handling.html#exercise",
+    "href": "notebooks/data_handling.html#exercise",
+    "title": "Data Handling and Basic Analysis (Part 2 Nutrition)",
+    "section": "8 8. Exercise",
+    "text": "8 8. Exercise\nUse the tools from this workbook to complete the following tasks:\n\nFor each outcome (bp_change, glucose, appetite_vas), explore its distribution (histograms, Q–Q plots, boxplots).\nDecide whether a parametric or non-parametric test is more appropriate for comparing intervention groups.\nPerform the comparison and report:\n\nThe test used and why.\nThe test statistic and p-value.\nYour conclusion using α = 0.0314.\n\nCreate one clear figure that summarises the main result for one of the interventions (coffee, cereal, or test food)."
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html",
+    "href": "howto_sandbox/python-cheatsheet.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#imports",
+    "href": "howto_sandbox/python-cheatsheet.html#imports",
+    "title": "",
+    "section": "1.1 0) Imports",
+    "text": "1.1 0) Imports\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Stats & modelling (install if missing)\nimport scipy.stats as stats\nimport statsmodels.api as sm\nimport statsmodels.formula_api as smf\nIf a library is missing in Colab:\n!pip -q install statsmodels\n# then: Runtime → Restart runtime"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#load-save-data",
+    "href": "howto_sandbox/python-cheatsheet.html#load-save-data",
+    "title": "",
+    "section": "1.2 1) Load / save data",
+    "text": "1.2 1) Load / save data\n# CSV from local upload or Drive\ndf = pd.read_csv(\"my_data.csv\")\n\n# CSV from GitHub (raw)\nurl = \"https://raw.githubusercontent.com/ggkuhnke/fb2nep-eoi/main/data/synthetic/fb2nep.csv\"\ndf = pd.read_csv(url)\n\n# Save\ndf.to_csv(\"output.csv\", index=False)"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#quick-look",
+    "href": "howto_sandbox/python-cheatsheet.html#quick-look",
+    "title": "",
+    "section": "1.3 2) Quick look",
+    "text": "1.3 2) Quick look\ndf.head()\ndf.tail()\ndf.shape\ndf.info()\ndf.describe(include=\"all\")\ndf[\"sex\"].value_counts(dropna=False)\ndf.isna().mean()  # fraction missing per column"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#select-filter-transform",
+    "href": "howto_sandbox/python-cheatsheet.html#select-filter-transform",
+    "title": "",
+    "section": "1.4 3) Select / filter / transform",
+    "text": "1.4 3) Select / filter / transform\n# Columns\ndf[[\"age\", \"bmi\"]]\n\n# Rows\ndf[df[\"age\"] &gt;= 50]\n\n# New columns\ndf[\"bmi_sq\"] = df[\"bmi\"] ** 2\n\n# Rename\ndf = df.rename(columns={\"cholesterol\": \"chol\"})\n\n# Sort\ndf = df.sort_values([\"age\", \"bmi\"], ascending=[True, False])"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#grouping-summaries",
+    "href": "howto_sandbox/python-cheatsheet.html#grouping-summaries",
+    "title": "",
+    "section": "1.5 4) Grouping & summaries",
+    "text": "1.5 4) Grouping & summaries\ndf.groupby(\"group\")[\"bmi\"].mean()\ndf.groupby([\"group\", \"sex\"])[\"sbp\"].agg([\"mean\", \"std\", \"count\"])\n\n# Crosstab\npd.crosstab(df[\"group\"], df[\"sex\"], margins=True, normalize=\"index\")"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#plotting-quick",
+    "href": "howto_sandbox/python-cheatsheet.html#plotting-quick",
+    "title": "",
+    "section": "1.6 5) Plotting (quick)",
+    "text": "1.6 5) Plotting (quick)\ndf[\"bmi\"].hist(bins=20)\nplt.title(\"BMI distribution\")\nplt.xlabel(\"BMI\"); plt.ylabel(\"Count\")\nplt.show()\n\n# Boxplot by group\ndf.boxplot(column=\"sbp\", by=\"group\")\nplt.suptitle(\"\"); plt.title(\"SBP by group\"); plt.xlabel(\"group\"); plt.ylabel(\"SBP\")\nplt.show()\n\n# Scatter\nplt.scatter(df[\"bmi\"], df[\"sbp\"])\nplt.xlabel(\"BMI\"); plt.ylabel(\"SBP\"); plt.show()"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#basic-stats",
+    "href": "howto_sandbox/python-cheatsheet.html#basic-stats",
+    "title": "",
+    "section": "1.7 6) Basic stats",
+    "text": "1.7 6) Basic stats\n# Two-sample t-test\na = df.loc[df[\"group\"] == \"A\", \"sbp\"]\nb = df.loc[df[\"group\"] == \"B\", \"sbp\"]\nstats.ttest_ind(a, b, equal_var=False, nan_policy=\"omit\")\n\n# Chi-square test on a 2x2\ntab = pd.crosstab(df[\"group\"], df[\"sex\"])\nstats.chi2_contingency(tab)"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#simple-models-statsmodels",
+    "href": "howto_sandbox/python-cheatsheet.html#simple-models-statsmodels",
+    "title": "",
+    "section": "1.8 7) Simple models (statsmodels)",
+    "text": "1.8 7) Simple models (statsmodels)\n# OLS regression\nmodel = smf.ols(\"sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nprint(model.summary())\n\n# Logistic regression (binary outcome)\n# e.g., 'high_sbp' is 0/1\nlogit = smf.logit(\"high_sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nprint(logit.summary())"
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#jupyter-basics",
+    "href": "howto_sandbox/python-cheatsheet.html#jupyter-basics",
+    "title": "",
+    "section": "1.9 8) Jupyter basics",
+    "text": "1.9 8) Jupyter basics\n\nRun cell: Shift + Enter\nInsert cell above/below: A / B\nInterrupt: stop button (■) or Kernel/Runtime → Interrupt\nRestart: Kernel/Runtime → Restart\nMarkdown cell: text with # headings, **bold**, lists, etc."
+  },
+  {
+    "objectID": "howto_sandbox/python-cheatsheet.html#reproducibility",
+    "href": "howto_sandbox/python-cheatsheet.html#reproducibility",
+    "title": "",
+    "section": "1.10 9) Reproducibility",
+    "text": "1.10 9) Reproducibility\nSEED = 11088\nnp.random.seed(SEED)\n\nRecord: dataset version, random seed, and exact code you ran."
+  },
+  {
+    "objectID": "howto_sandbox/index.html",
+    "href": "howto_sandbox/index.html",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "",
+    "text": "This page shows you how to open and use the module notebooks in Google Colab (or locally in Jupyter). It includes direct links and easy to understand guidance. If you have never used Python before, you are in the right place."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#quick-links",
+    "href": "howto_sandbox/index.html#quick-links",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "1 Quick links",
+    "text": "1 Quick links\nOpen the notebooks directly in Colab:\n\nIntroduction Notebook\n · View on GitHub\nPlayground (Sandbox)\n · View on GitHub\n\nPrintable cheat‑sheet:\n- python‑cheatsheet.md (open “Raw”, then save/print)\n\nIf you fork or use a different repository, update the links by replacing ggkuhnle/fb2nep-epi with your repo slug.\n\n\n\nWhat does “fork” mean on GitHub?\n\nA fork is your own copy of someone else’s GitHub repository under your GitHub account.\nYou can change it freely without affecting the original. Your fork can still receive updates from the original (“upstream”).\nWhy fork? - You want your own version of the materials. - You don’t have write permission on the original repo. - You plan to customise and maybe propose changes back later (via pull requests).\nHow to fork (GitHub web): 1. Open the original repo (e.g. https://github.com/ggkuhnle/fb2nep-epi). 2. Click Fork (top-right) → choose your account → Create fork. 3. You now have https://github.com/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;.\nUpdate links after forking Replace the owner/repo part with your fork’s repo slug: - GitHub view:\nhttps://github.com/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;/blob/main/path/to/notebook.ipynb - Colab badge:\nhttps://colab.research.google.com/github/&lt;YOUR-USER&gt;/&lt;YOUR-REPO&gt;/blob/main/path/to/notebook.ipynb\nFork vs. clone vs. branch (quick) - Fork: makes your own repo on GitHub. - Clone: makes a local copy on your computer. - Branch: a line of development inside one repo (yours or the original).\nKeeping your fork up-to-date - On GitHub: open your fork and click Sync fork / Fetch upstream. - With Git (advanced):\n```bash git remote add upstream https://github.com/ggkuhnle/fb2nep-epi.git git fetch upstream git checkout main git merge upstream/main git push"
+  },
+  {
+    "objectID": "howto_sandbox/index.html#how-to-open-a-notebook-in-colab-stepbystep",
+    "href": "howto_sandbox/index.html#how-to-open-a-notebook-in-colab-stepbystep",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "2 How to open a notebook in Colab (step‑by‑step)",
+    "text": "2 How to open a notebook in Colab (step‑by‑step)\n\nWhat is Colab? Colab is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.\n\n\nRight-clicking will open Colab in a new browser window.\n\n\nClick an Open in Colab button above. Colab will load the notebook from GitHub.\nAt the top‑right, click Connect if it isn’t already connected. This starts a fresh, temporary Python session (a “runtime”).\n\nYou may see a warning like “This notebook was not authored by Google.”\n\nClick Run anyway. Our notebooks are plain text and safe to run.\n\n\nYou might also see “Warning: This notebook requires permissions to run.”\n\nClick Run anyway. Colab sandboxes code; nothing runs on your computer.\n\n\nTo run a cell, click the small ▶ button on its left, or press Shift + Enter.\n\nTo run every cell from top to bottom, go to Runtime → Run all.\n\nTo save your own editable copy, go to File → Save a copy in Drive. You now have a personal copy you can edit freely.\n\n\n2.1 Useful Colab options\n\nRuntime → Restart runtime resets the session if things get stuck.\n\nRuntime → Change runtime type (we use Python 3; no GPU needed).\n\nFile → Download lets you save the executed notebook as .ipynb or PDF."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#working-locally-in-jupyter-optional",
+    "href": "howto_sandbox/index.html#working-locally-in-jupyter-optional",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "3 Working locally in Jupyter (optional)",
+    "text": "3 Working locally in Jupyter (optional)\nIf you prefer local execution: 1. Install Anaconda or Miniconda, then open Jupyter Lab.\n2. Download the .ipynb files from GitHub and open them in Jupyter Lab.\n3. Run cells with Shift + Enter as in Colab."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#troubleshooting",
+    "href": "howto_sandbox/index.html#troubleshooting",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "4 Troubleshooting",
+    "text": "4 Troubleshooting\n\nModuleNotFoundError (e.g. statsmodels): run the cell that starts with !pip install ..., then Runtime → Restart runtime, and re‑run the code.\n\nKernel crashed / out of memory: restart the runtime. Don’t open huge datasets in this sandbox.\n\nLong‑running cells: click the stop icon (■) next to the cell number, or Runtime → Interrupt execution."
+  },
+  {
+    "objectID": "howto_sandbox/index.html#what-you-will-learn-here",
+    "href": "howto_sandbox/index.html#what-you-will-learn-here",
+    "title": "FB2NEP — How‑To & Sandbox (Colab/Jupyter)",
+    "section": "5 What you will learn here",
+    "text": "5 What you will learn here\n\nHow to run Python cells safely in the cloud (Colab).\n\nHow to make small edits and immediately see their effect.\n\nHow to generate simple synthetic data and make basic plots & analyses you’ll reuse in FB2NEP.\n\nNow jump into the Introduction Notebook first, then play in the Playground."
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html",
+    "href": "howto_sandbox/Introduction-Notebook.html",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "",
+    "text": "Welcome — this notebook provides a brief introduction to Colab and Python. This can be used for practice, but also for reference. Like everything else in this module, this notebook assumes no prior Python experience. You will learn how to run cells, accept Colab warnings, and make tiny edits to code."
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#what-does-python-code-look-like",
+    "href": "howto_sandbox/Introduction-Notebook.html#what-does-python-code-look-like",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "1 0. What does Python code look like?",
+    "text": "1 0. What does Python code look like?\n\n\nWhat is Python?\n\nPython is a popular, general-purpose programming language known for being readable, beginner-friendly, and widely used in science, data analysis, and education.\nKey points - Easy to read: clear, English-like syntax; indentation (spacing) shows structure. - Interpreted: you run code line-by-line (great for notebooks and exploration). - “Batteries included”: comes with many built-in tools; huge ecosystem of libraries. - Cross-platform: works on Windows, macOS, and Linux; also runs in the cloud (Colab).\nWhy we use it in FB2NEP - Excellent libraries for data work: NumPy (numbers), pandas (tables), Matplotlib (plots). - Integrates smoothly with Jupyter/Colab, so you can mix code + text + results. - Perfect for transparent, reproducible analysis.\nDo I need to be a programmer? No. You’ll use short, explained snippets to explore concepts. You’re learning with code, not learning to code per se.\nWhich version? We use Python 3 (the modern standard). Colab already provides it; local users can install it via Miniconda/Anaconda or venv.\nTiny example:\nprint(\"Hello from Python!\")\n\nPython is a set of instructions written line by line.\nAnything after a # on a line is a comment — it’s for humans to read and Python ignores it.\nExample:\n# This is a comment — it explains the next line\nx = 2 + 3            # ← comment at the end of a line\nprint(x)             # prints 5 on the screen\nYou run code by clicking the little ▶ button to the left of a cell, or by pressing Shift + Enter.\n\nIf you see a warning like “This notebook was not authored by Google”, click Run anyway.\nColab runs code safely in the cloud and won’t change anything on your computer.\n\n\n1.1 Python has commands and data\nWhen you run a cell, Python executes commands (instructions) that act on data (values).\n\nCommands: things like print(...), len(...), sum(...), or your own functions.\n\nData: numbers, text, lists, tables, etc., usually stored in variables (names you choose).\n\nTiny example:\nname = \"Fiona\"       # data (text)\nn = 3                # data (number)\nprint(\"Hello\", name) # command acting on data\nprint(\"n + 2 =\", n + 2)\n\n\n1.2 What do we mean by “data”?\nData are the values your code works with. Common kinds you’ll see here:\n\nNumbers: 3, 2.5 (counts, measurements)\nText (strings): \"apple\", \"F\" (labels, categories)\nBooleans: True / False (yes/no flags)\nLists: [\"Mon\",\"Tue\",\"Wed\"], [2, 1, 3] (ordered collections)\nDictionaries: {\"age\": 10, \"height_cm\": 140} (named pieces of data)\nTables (pandas DataFrame): spreadsheet-like rows & columns for analysis\n\nMini examples:\nage = 10                           # number\nfruit = [\"apple\", \"banana\"]        # list of text\nheights = {\"Alex\":150, \"Sam\":146}  # dictionary\nIn FB2NEP we mostly use numbers, text labels, and tables (pandas DataFrame) because they map naturally to real datasets (participants × variables). You will also encounter missing values (shown as NaN) — that simply means “no recorded value”."
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#running-a-cell",
+    "href": "howto_sandbox/Introduction-Notebook.html#running-a-cell",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "2 1. Running a cell",
+    "text": "2 1. Running a cell\nClick the ▶ icon to the left of a cell, or press Shift + Enter.\nTry it now — run the cell below.\n\n# ----------------------------------------------\n# Adding two numbers\n# This cell has comments that explain each step.\n# Lines starting with '#' are comments and do not run.\n# ----------------------------------------------\n# 🦛 Friendly hippo says: Maths can be fun!\n2 + 2    # add two numbers\n\nNow edit the code above (e.g. change it to 2 + 3) and run it again. You should see the new result immediately."
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#what-python-are-we-using",
+    "href": "howto_sandbox/Introduction-Notebook.html#what-python-are-we-using",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "3 2. What Python are we using?",
+    "text": "3 2. What Python are we using?\n\n# ----------------------------------------------\n# Show Python version and executable\n# ----------------------------------------------\nimport sys, platform   # import = bring tools into Python\nprint(\"Python executable:\", sys.executable)      # where Python lives in Colab\nprint(\"Python version:\", sys.version.split()[0])  # which Python version\n\n\n3.1 What are “libraries” (a.k.a. packages/modules)?\nLibraries are add-on toolboxes for Python. They provide ready-made functions so you don’t have to write everything from scratch.\n\nTerminology (you’ll see these used loosely):\n\nLibrary / package: the installable toolbox (e.g. pandas, NumPy).\nModule: a file inside a package (e.g. matplotlib.pyplot).\n\nInstall vs import:\n\nInstall (usually once per environment): makes the library available to Python.\nImport (every time you run a notebook): brings the library into your session.\n\nWhere do they “live”?\nIn your current environment/kernel (Colab’s runtime or your local conda/venv). If you install into one environment but run a notebook with a different kernel, imports will fail.\n\nCommon libraries in FB2NEP - NumPy (import numpy as np) — fast maths and arrays. - pandas (import pandas as pd) — tables (DataFrames), reading CSV/Excel, tidying. - Matplotlib (import matplotlib.pyplot as plt) — plots and figures.\nTypical workflow 1) (If needed) install\npython    # In notebooks, prefer %pip so it targets the current kernel    %pip -q install numpy pandas matplotlib 2) Import python    import numpy as np    import pandas as pd    import matplotlib.pyplot as plt 3) Use python    arr = np.array([1, 2, 3])    df = pd.DataFrame({\"x\": [1, 2, 3]})    plt.plot(df[\"x\"]); plt.show()\n\nColab note: many libraries are already installed. If you install new ones, Runtime → Restart runtime and re-run the notebook from the top.\n\nExample: how to use libraries.\n\n# Quick library demo (imports + versions)\nimport numpy as np, pandas as pd, matplotlib\nprint(\"NumPy:\", np.__version__)\nprint(\"pandas:\", pd.__version__)\nprint(\"Matplotlib:\", matplotlib.__version__)\n\n\n\n3.2 3. Variables: storing and using information\nA variable is a named container that holds a piece of information — such as text, numbers, or data.\nYou can give variables meaningful names (e.g. name, year) and then use them in commands.\nIn this example: - name = \"Jessica\" assigns a piece of text (called a string) to the variable name. - year = datetime.now().year automatically retrieves the current year from your computer or Colab environment. - print(\"Hello\", name, \"— welcome to FB2NEP\", year) combines both variables in one output line.\nVariables make your code flexible — if you change name, the message updates automatically.\n\n# ----------------------------------------------\n# Say hello with variables\n# ----------------------------------------------\nfrom datetime import datetime   # import module to get current date/time\nname = \"Jessica\"            # a text value (a 'string')\nyear = datetime.now().year  # a number\nprint(\"Hello\", name, \"— welcome to FB2NEP\", year)   # show something on the screen"
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#working-with-small-collections-of-data-lists-and-simple-calculations",
+    "href": "howto_sandbox/Introduction-Notebook.html#working-with-small-collections-of-data-lists-and-simple-calculations",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "4 4. Working with small collections of data: lists and simple calculations",
+    "text": "4 4. Working with small collections of data: lists and simple calculations\nIn Python, a list is an ordered collection of values. It can hold numbers, text, or a mixture of both, and is written inside square brackets [ ], with items separated by commas.\nIn this example, we have a small list of numbers representing, for instance, the number of fruit portions eaten by four participants.\nWe then use a few built-in functions to calculate basic descriptive statistics:\n\nsum(nums) — adds up all numbers in the list.\n\nlen(nums) — counts how many items are in the list (its length).\n\ntotal / n — divides the total by the number of items to obtain the mean (average).\n\nprint(...) — displays the results clearly below the cell.\n\nYou can change the numbers, re-run the cell, and observe how the total and mean change accordingly.\n\n# ----------------------------------------------\n# List of numbers — total and mean\n# ----------------------------------------------\nnums = [3, 5, 8, 12]  # a list: an ordered box of values\ntotal = sum(nums)     # sum() adds up numbers\nn     = len(nums)     # Length of list = number of observations\nmean = total / n      # average = total divided by how many\nprint(\"Numbers:\", nums)\nprint(\"Total:\", total, \"Observations:\", n, \"Mean:\", mean)"
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#first-steps-with-data",
+    "href": "howto_sandbox/Introduction-Notebook.html#first-steps-with-data",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "5 5. First steps with data",
+    "text": "5 5. First steps with data\nNumPy is the library Python uses for numbers and maths with arrays.\nAn array is like a list, but stored very efficiently — so you can do big calculations quickly.\nFor example, you can add two arrays together in one go, instead of looping through numbers.\nPandas actually uses NumPy under the hood to store and crunch the numbers inside its tables.\nPandas is a Python library that makes it easy to handle tables of data (like spreadsheets).\nThe main building block is the DataFrame, which is like a whole sheet with rows and columns.\nYou can put numbers or text inside, and then quickly look at, sort, filter, or calculate things.\nThink of pandas as your spreadsheet inside Python — but much more powerful and flexible.\n\n# ----------------------------------------------\n# Create a tiny table (DataFrame)\n# ----------------------------------------------\nimport numpy as np       # import = bring tools into Python\nimport pandas as pd\n\n# 🦛 Hippo hint: NumPy = numbers, pandas = tables\n\n# --- NumPy examples ---\n# Make a small NumPy array (like a list, but faster for maths)\narr = np.array([1, 2, 3, 4, 5])\nprint(\"Array:\", arr)\n\n# Do maths with the whole array at once\nprint(\"Array + 10:\", arr + 10)     # add 10 to each element\nprint(\"Array squared:\", arr ** 2)  # square every element\n\n\n# --- pandas example ---\n# Create a tiny DataFrame (like a mini spreadsheet)\ndf = pd.DataFrame({\n  \"age\": [8, 9, 10, 11, 12],\n  \"height_cm\": [130, 135, 140, 145, 150]\n})\n\n# Show the DataFrame\ndf\n\nChange a number in the table creation above (e.g. one of the heights) and run again. Do you see the change?"
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#a-first-plot",
+    "href": "howto_sandbox/Introduction-Notebook.html#a-first-plot",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "6 6. A first plot",
+    "text": "6 6. A first plot\nMatplotlib is Python’s main tool for making graphs and pictures.\nIt lets you draw lines, bars, scatter plots, histograms, and much more.\nThink of it as the drawing toolbox:\n- You tell it what data to use (x and y values).\n- You can add labels, titles, and colours.\n- When you’re ready, plt.show() displays the finished picture.\n(pandas can also plot directly, but under the hood it still uses matplotlib).\n\n# ----------------------------------------------\n# Line plot of age vs height\n# ----------------------------------------------\nimport matplotlib.pyplot as plt   # plotting library\n\n# 🦛 Friendly hippo says: A picture tells a story!\nplt.plot(df[\"age\"], df[\"height_cm\"], marker=\"o\")   # draw a line with dots\nplt.xlabel(\"Age (years)\")   # label the x-axis\nplt.ylabel(\"Height (cm)\")   # label the y-axis\nplt.title(\"Example plot\")   # add a title\nplt.show()                   # display the picture"
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#save-your-own-copy-important",
+    "href": "howto_sandbox/Introduction-Notebook.html#save-your-own-copy-important",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "7 7. Save your own copy (important)",
+    "text": "7 7. Save your own copy (important)\nGo to File → Save a copy in Drive. That creates a personal copy you can edit without affecting the teaching version."
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#if-something-breaks",
+    "href": "howto_sandbox/Introduction-Notebook.html#if-something-breaks",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "8 8. If something breaks",
+    "text": "8 8. If something breaks\n\nRuntime → Restart runtime, then run cells again from the top.\n\nIf a library is missing, install it with !pip install ... then restart the runtime."
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#some-further-reading",
+    "href": "howto_sandbox/Introduction-Notebook.html#some-further-reading",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "9 9. Some further reading",
+    "text": "9 9. Some further reading\nThese are ideas you’ll meet later. It’s okay if they feel new!\n\nList: an ordered collection that you can change.\n\nTuple: like a list, but fixed once created.\n\nDictionary (dict): pairs of key: value (like a mini address book).\n\nSet: a bag of unique items, no duplicates.\n\nOOP (Object-Oriented Programming): a way to bundle data and behaviour together.\n\n\n# ----------------------------------------------\n# Advanced containers (lists, tuples, dicts, sets)\n# ----------------------------------------------\n\n# List: ordered, changeable\nfruits = [\"apple\", \"banana\", \"pear\"]\nfruits.append(\"apple\")        # duplicate allowed\n# 🦛 notice: lists keep order and allow repeats\nprint(\"List:\", fruits)\n\n# Tuple: ordered, not changeable (immutable)\ncoords = (51.44, -0.94)       # (lat, lon) for Reading-ish\nprint(\"Tuple:\", coords)\n\n# Dict: key → value mapping\nheights = {\"Alex\": 150, \"Sam\": 145}\nheights[\"Sam\"] = 146          # update a value\nprint(\"Dict:\", heights)\n\n# Set: unique items, no order\nunique_fruits = set(fruits)\nprint(\"Set (unique):\", unique_fruits)\n\n\n9.1 A tiny taste of OOP (Object-Oriented Programming)\nThink of OOP as a way to bundle data and the things you can do with that data into one unit.\n\n9.1.1 Core ideas (mapped to our example)\n\nClass → a blueprint that defines what data an object has and what it can do.\nExample: Hippo is the blueprint.\nObject / instance → a concrete thing made from a class.\nExample: h = Hippo(\"Hildegard\", favourite_food=\"lotus leaves\").\nAttributes → the data an object stores.\nExample: self.name, self.favourite_food.\nMethods → the behaviours (functions) an object can perform.\nExample: introduce(), eat(food).\n__init__ → the constructor: runs when you create a new object, initialising its attributes.\nself → the current object; it lets methods access the object’s own data.\n\n\n\n9.1.2 Why OOP can be useful\n\nEncapsulation: keep related data and actions together (tidy, easier to reason about).\nReusability: create many objects from one blueprint (e.g., lots of hippos with different names).\nExtensibility: add new methods or attributes later without breaking existing code.\n\n\n\n9.1.3 Reading the Hippo example\n\nThe class defines what every hippo has (name, favourite_food) and what every hippo does (introduce, eat).\nWhen we write h = Hippo(\"Hildegard\", ...), Python calls __init__ to set up that object’s data.\nCalling h.eat(\"cabbage\") runs the eat method on that object’s data (via self).\n\n\n\n9.1.4 When should you use OOP here?\nFor most FB2NEP notebooks, functions + data frames are enough.\nUse a small class only when it clarifies structure (e.g., simulating participants, instruments, or study arms with shared behaviour).\n\n\n\nOptional: two more OOP ideas\n\n\nInheritance: make a new class that extends another (e.g., BabyHippo(Hippo)).\nPolymorphism: different classes can share a method name but behave differently (e.g., eat for different animals).\n\nYou won’t need these for this module, but you’ll see them in larger software projects.\n\n\n\n\n9.2 Try it\n\nMake another object: h2 = Hippo(\"Fiona\"); call h2.introduce().\nChange the behaviour: inside eat, add a line to count how many times the hippo has eaten.\nAdd an attribute: e.g., age_years, and show it in introduce().\n\n\n# ----------------------------------------------\n# A tiny class: Hippo — with data and behaviours\n# ----------------------------------------------\nclass Hippo:\n  # The special __init__ method sets up new hippos\n  def __init__(self, name, favourite_food=\"water plants\"):\n    self.name = name                    # data (an attribute)\n    self.favourite_food = favourite_food\n\n  # A behaviour (a method): the hippo can introduce itself\n  def introduce(self):\n    print(f\"Hello, I'm {self.name} the hippo. I like {self.favourite_food}.\")\n\n  # Another behaviour\n  def eat(self, food):\n    if food == self.favourite_food:\n      print(f\"Yum! {self.name} loves {food}. 🦛\")\n    else:\n      print(f\"{self.name} tries {food}… not bad!\")\n\n# Make an object (an instance) from the class\nh = Hippo(\"Hildegard\", favourite_food=\"lotus leaves\")\nh.introduce()      # call a method\nh.eat(\"lotus leaves\")\nh.eat(\"cabbage\")"
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#further-information-resources",
+    "href": "howto_sandbox/Introduction-Notebook.html#further-information-resources",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "10 10. Further information & resources",
+    "text": "10 10. Further information & resources\nIf you’d like to explore beyond this notebook:\n\n📘 Course-specific projects\nData Analysis Projects — examples, workflows, and ideas for project students.\n🌐 Official documentation:\n\nNumPy — arrays and fast maths.\n\npandas — data tables and analysis.\n\nmatplotlib — plotting and visualisation.\n\n💡 Gentle tutorials:\n\nW3Schools Python Tutorial (step-by-step basics).\n\nReal Python (clear, example-driven articles).\n\nGoogle Colab Guide (how Colab works).\n\n\n(These are optional reading — you don’t need to learn everything at once!)"
+  },
+  {
+    "objectID": "howto_sandbox/Introduction-Notebook.html#loading-data-reference",
+    "href": "howto_sandbox/Introduction-Notebook.html#loading-data-reference",
+    "title": "Introduction to Colab & Python (for FB2NEP)",
+    "section": "11 11. Loading data (reference)",
+    "text": "11 11. Loading data (reference)\n\nGood to know: In FB2NEP teaching notebooks, data are loaded automatically. You do not need to do this yourself for the module activities. The examples below are here in case you want to practise with your own files.\n\n\n11.1 Option A — Load a small CSV from the web (GitHub raw)\nUse this for public CSVs hosted online (fastest way to test).\n\nimport pandas as pd\nurl = \"https://raw.githubusercontent.com/ggkuhnle/fb2nep-epi/main/data/synthetic/fb2nep.csv\"  # replace\ndf = pd.read_csv(url)\ndf.head()\n\n\n\n11.2 Option B — Upload a file from your computer (Colab)\nUncomment and run the lines below, then pick a CSV. Colab will store it temporarily in the session.\n\n# from google.colab import files\n# up = files.upload()                            # choose a file\n# import io\n# import pandas as pd\n# name = next(iter(up))                          # first uploaded filename\n# df = pd.read_csv(io.BytesIO(up[name]))\n# df.head()\n\n\n\n11.3 Option C — Load/save via Google Drive (persistent across Colab sessions)\nMount Drive, then read/write using a path in your Drive.\n\n# from google.colab import drive\n# drive.mount('/content/drive')\n# import pandas as pd\n# df = pd.read_csv('/content/drive/MyDrive/fb2nep/example.csv')\n# df.head()\n\n# Save back to Drive\n# df.to_csv('/content/drive/MyDrive/fb2nep/output.csv', index=False)\n\n\n\n11.4 Quick checks (useful with any dataset)\n\nWhat are the dimensions? What columns exist? Any missing values?\n\n\nprint(\"Shape:\", df.shape)\ndf.info()\ndf.isna().mean()  # fraction missing per column\n\n\n\n11.5 Optional — Save a copy locally (Colab session storage)\nFiles saved here can be downloaded from the Files pane on the left.\n\ndf.to_csv('my_output.csv', index=False)\nprint(\"Saved as my_output.csv — in Colab, open the Files pane → three dots → Download.\")"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html",
+    "href": "howto_sandbox/Playground.html",
+    "title": "Playground (Sandbox)",
+    "section": "",
+    "text": "This is a safe space to experiment. It generates a small synthetic dataset so you can practise plotting and simple analyses used in FB2NEP.\n# Reset & verify environment (run first if anything is odd)\nimport sys, numpy as np, pandas as pd, matplotlib\nprint(\"Python:\", sys.version.split()[0])\nprint(\"NumPy:\", np.__version__, \"| pandas:\", pd.__version__, \"| Matplotlib:\", matplotlib.__version__)\nSEED = 11088  # FB2NEP reproducibility convention\nnp.random.seed(SEED)\n# Setup: import required libraries for the sandbox\nimport numpy as np\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nimport scipy.stats as stats\nimport statsmodels.api as sm\nimport statsmodels.formula.api as smf\n\npd.set_option(\"display.max_columns\", 50)\n# If a package is missing in Colab, uncomment and run, then Runtime → Restart runtime\n# %pip -q install statsmodels scipy"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#parameters-change-these-and-re-run",
+    "href": "howto_sandbox/Playground.html#parameters-change-these-and-re-run",
+    "title": "Playground (Sandbox)",
+    "section": "1 1) Parameters — change these and re-run",
+    "text": "1 1) Parameters — change these and re-run\n\n# ▶ Try changing N or the effect sizes and re-run the next cells\nN = 400          # sample size\nRATIO_F = 0.6    # fraction female\nGROUP_EFFECT = -3.5  # mean SBP difference (B vs A), in mmHg\n\nnp.random.seed(SEED)"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#generate-a-simple-dataset",
+    "href": "howto_sandbox/Playground.html#generate-a-simple-dataset",
+    "title": "Playground (Sandbox)",
+    "section": "2 2) Generate a simple dataset",
+    "text": "2 2) Generate a simple dataset\n\nages = np.random.normal(45, 12, N).round(1)\nbmi  = np.random.normal(26, 4, N).round(1)\n\nsex = np.where(np.random.rand(N) &lt; RATIO_F, \"F\", \"M\")\ngroup = np.where(np.random.rand(N) &lt; 0.5, \"A\", \"B\")\n\n# SBP depends on age, BMI, sex, and group (B has lower mean by GROUP_EFFECT)\nbase = 110 + 0.35*ages + 0.9*bmi + np.where(sex==\"M\", 4.0, 0.0)\nsbp = base + np.where(group==\"B\", GROUP_EFFECT, 0.0) + np.random.normal(0, 8, N)\n\n# Total cholesterol (mmol/L) loosely related to age/BMI\nchol = 3.8 + 0.015*ages + 0.05*bmi + np.random.normal(0, 0.4, N)\n\n# Binary outcome: high SBP (≥140)\nhigh_sbp = (sbp &gt;= 140).astype(int)\n\ndf = pd.DataFrame({\n    \"age\": ages,\n    \"bmi\": bmi,\n    \"sex\": sex,\n    \"group\": group,\n    \"sbp\": sbp.round(1),\n    \"chol\": chol.round(2),\n    \"high_sbp\": high_sbp\n})\ndf.head()"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#quick-exploration",
+    "href": "howto_sandbox/Playground.html#quick-exploration",
+    "title": "Playground (Sandbox)",
+    "section": "3 3) Quick exploration",
+    "text": "3 3) Quick exploration\nRun the following cells; then try changing parameters above (e.g. N, GROUP_EFFECT) and re-run.\n\nprint(\"Shape:\", df.shape)\ndf.info()\n\n\ndf.describe(include=\"all\")\n\n\ndf['sex'].value_counts(), df['group'].value_counts()\n\n\ndf.isna().mean()  # missingness per column"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#plots",
+    "href": "howto_sandbox/Playground.html#plots",
+    "title": "Playground (Sandbox)",
+    "section": "4 4) Plots",
+    "text": "4 4) Plots\n\n# Histogram of SBP\ndf['sbp'].hist(bins=25)\nplt.xlabel(\"SBP (mmHg)\"); plt.ylabel(\"Count\"); plt.title(\"SBP distribution\")\nplt.tight_layout()\nplt.show()\n\n\n# Boxplot by group\ndf.boxplot(column=\"sbp\", by=\"group\")\nplt.suptitle(\"\")\nplt.title(\"SBP by group\"); plt.xlabel(\"group\"); plt.ylabel(\"SBP (mmHg)\")\nplt.tight_layout()\nplt.show()\n\n\n# Scatter: BMI vs SBP\nplt.scatter(df['bmi'], df['sbp'])\nplt.xlabel(\"BMI\"); plt.ylabel(\"SBP (mmHg)\"); plt.title(\"BMI vs SBP\")\nplt.tight_layout()\nplt.show()"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#table-1-style-summary",
+    "href": "howto_sandbox/Playground.html#table-1-style-summary",
+    "title": "Playground (Sandbox)",
+    "section": "5 5) Table 1-style summary",
+    "text": "5 5) Table 1-style summary\n\n# Continuous variables by group\ncont = df.groupby('group')[['age','bmi','sbp','chol']].agg(['mean','std','count'])\ncont\n\n\n# Categorical variables by group\npd.crosstab(df['group'], df['sex'], margins=True, normalize='index')"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#basic-hypothesis-tests",
+    "href": "howto_sandbox/Playground.html#basic-hypothesis-tests",
+    "title": "Playground (Sandbox)",
+    "section": "6 6) Basic hypothesis tests",
+    "text": "6 6) Basic hypothesis tests\n\n# Two-sample t-test: SBP between A and B\na = df.loc[df['group']=='A','sbp']\nb = df.loc[df['group']=='B','sbp']\nstats.ttest_ind(a, b, equal_var=False)\n\n\n# Chi-square test: sex distribution by group\ntab = pd.crosstab(df['group'], df['sex'])\ntab, stats.chi2_contingency(tab)[:2]  # (table, (chi2, p))"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#simple-models",
+    "href": "howto_sandbox/Playground.html#simple-models",
+    "title": "Playground (Sandbox)",
+    "section": "7 7) Simple models",
+    "text": "7 7) Simple models\nWe’ll use statsmodels with formula syntax. C(var) treats a variable as categorical.\n\n# OLS: SBP ~ age + BMI + sex + group\nols = smf.ols(\"sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit()\nols.summary()\n\n\n# Logistic regression: high_sbp (0/1) ~ predictors\nlogit = smf.logit(\"high_sbp ~ age + bmi + C(sex) + C(group)\", data=df).fit(disp=False)\nlogit.summary()"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#data-io-helpers-optional-colab",
+    "href": "howto_sandbox/Playground.html#data-io-helpers-optional-colab",
+    "title": "Playground (Sandbox)",
+    "section": "8 8) Data I/O helpers (optional, Colab)",
+    "text": "8 8) Data I/O helpers (optional, Colab)\n\n# Upload a CSV from your computer (Colab only)\n# from google.colab import files\n# up = files.upload()  # pick a file\n# import pandas as pd\n# df = pd.read_csv(next(iter(up.keys())))\n# df.head()\n\n\n# Mount your Google Drive (persistent files across sessions)\n# from google.colab import drive\n# drive.mount('/content/drive')\n# Example save path:\n# df.to_csv('/content/drive/MyDrive/fb2nep/sandbox_output.csv', index=False)"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#export-your-work",
+    "href": "howto_sandbox/Playground.html#export-your-work",
+    "title": "Playground (Sandbox)",
+    "section": "9 9) Export your work",
+    "text": "9 9) Export your work\n\n# Save your sandbox dataset/results locally in this session\ndf.to_csv(\"sandbox_output.csv\", index=False)\nprint(\"Saved as sandbox_output.csv. In Colab, open the Files panel (left) → three dots → Download.\")"
+  },
+  {
+    "objectID": "howto_sandbox/Playground.html#your-turn-try-these",
+    "href": "howto_sandbox/Playground.html#your-turn-try-these",
+    "title": "Playground (Sandbox)",
+    "section": "10 10) Your turn — try these",
+    "text": "10 10) Your turn — try these\n\nChange GROUP_EFFECT to +2.0 (so group B has higher SBP) and re-generate. What happens to the t-test and model coefficients?\n\nIncrease N to 2000. Do p-values change? Why?\n\nAdd C(group):C(sex) interaction to the OLS formula. Does it help?\n\nCreate a new variable waist = 2.5*bmi + noise and see how it relates to SBP."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FB2NRP - Data handling",
+    "section": "",
+    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
+    "crumbs": [
+      "Home",
+      "FB2NRP - Data handling"
+    ]
+  },
+  {
+    "objectID": "index.html#practical-workbooks",
+    "href": "index.html#practical-workbooks",
+    "title": "FB2NRP - Data handling",
+    "section": "",
+    "text": "This page links to the FB2NEP practical workbooks.\nEach badge opens the notebook in Google Colab in a new browser tab.\nYou may also download the notebooks and run them locally in Jupyter.",
+    "crumbs": [
+      "Home",
+      "FB2NRP - Data handling"
+    ]
+  }
+]
